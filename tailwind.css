@@ -1,0 +1,738 @@
+@charset "UTF-8";
+
+/*
+Theme Name: SI Blogs
+Theme URI: https://www.linkedin.com/in/shahid-ifraheem/
+Author: Shahid Ifraheem
+Author URI: https://www.linkedin.com/in/shahid-ifraheem/
+Description: SI Blogs is a blog webste template through which you can start blogging
+Requires at least: 6.0
+Tested up to: 6.2
+Requires PHP: 7.4
+Version: 1.0
+Text Domain: siblogs
+Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, sticky-post, threaded-comments, translation-ready
+*/
+
+@tailwind base;
+@layer base {
+    h1 {
+        @apply text-3xl lg:text-6xl md:text-5xl sm:text-4xl
+    }
+
+    h2 {
+        @apply text-2xl sm:text-3xl md:text-5xl
+    }
+
+    h3 {
+        @apply text-xl sm:text-2xl md:text-3xl
+    }
+
+    h4 {
+        @apply text-lg sm:text-xl md:text-2xl
+    }
+
+    h5 {
+        @apply text-base sm:text-xl
+    }
+
+    h6 {
+        @apply text-sm sm:text-lg
+    }
+}
+@tailwind components;
+@tailwind utilities;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a{
+    @apply inline-block transition-all
+}
+svg, svg * {
+    @apply transition-all
+}
+a:hover svg, a:hover svg path{
+    fill: var(--primary-color);
+}
+img{
+    @apply block max-w-full transition-all shadow hover:shadow-md
+}
+input:not(input[type="radio"], input[type="checkbox"]),textarea, select{
+    border: 1px solid var(--border-color);
+    @apply w-full h-10 outline-none transition-all
+}
+input:not(input[type="radio"], input[type="checkbox"]):focus,textarea:focus, select:focus{
+    border-color: var(--primary-color);
+}
+input[type="radio"], input[type="checkbox"]{
+    accent-color: var(--primary-color);
+}
+textarea{
+    @apply h-auto
+}
+input[type="submit"],form button, .universal-btn{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 1px solid var(--primary-color) !important;
+    width: auto !important;
+    cursor: pointer;
+}
+.universal-btn{
+    @apply inline-flex justify-center items-center gap-2
+}
+input[type="submit"]:hover, form button:hover, .universal-btn:hover{
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+.custom-logo{
+    @apply shadow-none !important
+}
+.icons-list, #si-secondary-menu{
+    @apply flex items-center gap-3
+}
+.toggle-box{
+    @apply block lg:hidden
+}
+#si-header{
+    z-index: 5;
+    width: 100%;
+}
+#si-header.header-fixed{
+    @apply fixed top-0 left-0 right-0
+}
+.admin-bar #si-header.header-fixed{
+    @apply top-11 md:top-8
+}
+#si-header-navbar{
+    @apply hidden lg:block
+}
+/* Navbar */
+.si-navbar{
+    @apply relative
+}
+.si-navbar > ul{
+    @apply flex flex-wrap items-center
+}
+.si-navbar > ul > li > a{
+    @apply py-6
+}
+.si-navbar .has-grid-menu > a,.si-navbar .has-post-grid > a,.si-navbar .has-sub-menu > a,.si-navbar .has-sub-menu .has-dropdown > a,#sidebar-main-menu .menu-item-has-children > a{
+    @apply flex items-center
+}
+.has-sub-menu .has-dropdown > a,#sidebar-main-menu .menu-item-has-children > a{
+    @apply justify-between
+}
+.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after{
+    content: "\276F";
+    color: var(--primary-color);
+    @apply inline-block rotate-90 text-xs ml-2 font-thin
+}
+.si-navbar .has-sub-menu .sub-menu > li > a:after{
+    @apply rotate-0
+}
+.si-navbar .mega-menu, .si-navbar .has-sub-menu .sub-menu{
+    @apply absolute top-full invisible opacity-0 transition-all z-10 left-2/3 -translate-x-1/2 shadow-md
+}
+.si-navbar .has-sub-menu .sub-menu{
+    left: unset;
+    transform: unset !important;
+}
+.si-navbar .has-sub-menu .sub-menu li{
+    position: relative;
+}
+.si-navbar li:hover > .mega-menu, .si-navbar li:hover > .sub-menu{
+    @apply visible opacity-100
+}
+.si-navbar .mega-menu-grid{
+    @apply grid grid-cols-5
+}
+.si-navbar .menu-post h3{
+    @apply text-base my-2
+}
+.si-navbar .menu-post .date{
+    color: var(--secondary-color);
+    font-family: var(--body-font);
+    @apply text-sm font-normal
+}
+.si-navbar .mega-menu{
+    @apply flex items-center overflow-hidden
+}
+.si-navbar .mega-menu > ul{
+    @apply w-full
+}
+.si-navbar .has-grid .mega-menu-grid{
+    width: calc(100% - 200px);
+    border-left: 1px solid var(--border-color);
+    @apply absolute  top-1/2 right-0 invisible opacity-0 transition-all -translate-y-1/2
+}
+.si-navbar .has-grid-menu .has-grid+.has-grid{
+    border-top: 1px solid var(--border-color);
+}
+.si-navbar .has-grid-menu .has-grid > a{
+    @apply py-2 px-4
+}
+.si-navbar .has-grid-menu:hover .has-grid.active .mega-menu-grid{
+    @apply visible opacity-100
+}
+.si-navbar .has-grid-menu:hover .has-grid.active > a{
+    color: var(--primary-color);
+}
+.si-search{
+    position: relative;
+}
+.si-search button{
+    @apply p-0 bg-transparent border-none w-10 h-10 flex justify-center items-center !important
+}
+.si-search input{
+    width: 0px !important;
+    @apply border-none absolute right-0 top-0 bottom-0 mr-12 !important
+}
+.si-search.active input{
+    width: 250px !important;
+    @apply px-2
+}
+.search-form{
+    @apply flex
+}
+/* Sidebar */
+#sidebar-overlay{
+    z-index: 11;
+    @apply fixed top-0 left-0 right-0 bottom-0 invisible opacity-0
+}
+#sidebar-overlay.active{
+    @apply opacity-100 visible
+}
+#si-sidebar{
+    @apply fixed top-0 left-0 bottom-0 h-screen overflow-y-auto z-20 invisible opacity-0 -translate-x-full
+}
+#si-sidebar.active{
+    @apply visible opacity-100 translate-x-0
+}
+.admin-bar #si-sidebar{
+    @apply top-11 md:top-8
+}
+#sidebar-main-menu a{
+    @apply block py-3
+}
+#sidebar-main-menu .sub-menu{
+    @apply hidden
+}
+#sidebar-content{
+    @apply relative
+}
+.close-sidebar{
+    @apply absolute top-0 right-0 h-8 w-8 flex justify-center items-center
+}
+.mailpoet_form{
+    @apply p-0 !important
+}
+.newsletter .mailpoet_submit{
+    margin: 0 !important;
+}
+.secondary-footer .si-wrapper-content{
+    @apply gap-3 flex-wrap text-center sm:flex-nowrap sm:text-start 
+}
+.secondary-footer .site-info,.secondary-footer .newsletter{
+    width: 100%;
+}
+.has-extra-small-font-size{
+    font-size: 16px;
+}
+.widget_text a{
+    text-decoration: underline;
+}
+.email-btn{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    @apply relative text-lg pl-8 pr-20 xxl:pr-12 py-3 rounded-full overflow-hidden inline-block xxl:block mt-3
+}
+.email-btn:hover{
+    color: var(--dark-color);
+}
+.email-btn .icon{
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    @apply absolute top-0 bottom-0 right-0 px-6 rounded-full flex justify-center items-center shadow-xl
+}
+.email-btn:hover .icon{
+    opacity: .8;
+}
+/* Breadcrumbs */
+.breadcrumbs .si-wrapper {
+    @apply flex flex-wrap items-center
+}
+.si-main-grid{
+    @apply grid gap-1;
+}
+.si-main-grid .overlay-post{
+    @apply w-full
+}
+.si-main-grid .overlay-post:not(.overlay-post:first-child) img{
+    height: 275px;
+}
+.si-main-grid .overlay-post:first-child {
+    grid-row-start: unset;
+    grid-row-end: unset;
+}
+.overlay-post{
+    @apply relative overflow-hidden
+}
+.overlay-post .author{
+    @apply flex gap-1
+}
+.overlay-post .author a{
+    color: var(--white-color);
+}
+.overlay-post img{
+    @apply rounded-none
+}
+.overlay-post:hover img{
+    @apply scale-105
+}
+.link-overlay{
+    z-index: 1;
+    background: linear-gradient(transparent 35%, rgba(0,0,0,.85) 100%);
+    @apply absolute top-0 left-0 right-0 bottom-0
+}
+.featured-img a{
+    @apply block
+}
+.featured-img img{
+    transition: transform 1s;
+    @apply w-full object-cover
+}
+.overlay-post .post-content{
+    z-index: 1;
+    @apply absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6
+}
+.overlay-post a{
+    @apply block
+}
+.overlay-post .post-title{
+    color: var(--white-color);
+    @apply text-xl xsm:text-2xl md:text-3xl my-1 sm:my-3
+}
+.overlay-post .post-title:not(.overlay-post:first-child .post-title){
+    @apply text-2xl
+}
+.post-views-badge{
+    color: var(--white-color);
+    @apply flex items-center gap-1
+}
+.overlay-post .post-content_header{
+    @apply justify-start
+}
+.post-content_header{
+    @apply flex items-center justify-between gap-4 mt-2
+}
+.post-categories{
+    @apply flex gap-2 items-center
+}
+.post-categories a{
+    z-index: 2;
+    @apply relative
+}
+.post-content_footer{
+    color: var(--secondary-color);
+    @apply flex items-center gap-1
+}
+.overlay-post .post-content_footer{
+    color: var(--white-color);
+}
+.posts-grid .post-content_header{
+    @apply justify-between
+}
+.post-categories{
+    @apply flex items-center gap-2
+}
+.post-categories a{
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    @apply  font-semibold
+}
+.post-title{
+    @apply text-xl sm:my-2
+}
+.post-views-box{
+    @apply flex items-center gap-2
+}
+.posts-grid .post-content_footer{
+    color: var(--secondary-color);
+}
+.posts-grid .featured-img img{
+    height: 260px;
+}
+.not-available-text{
+    color: #e70000;
+    @apply flex justify-center items-center h-full w-full text-xl text-center
+}
+.posts-list-section .si-wrapper-content{
+    @apply  items-start
+}
+.posts-list{
+    @apply w-full md:w-3/4
+}
+.posts-list .post{
+    @apply flex items-center flex-wrap gap-0
+}
+.posts-list .post+.post{
+    border-top: 1px solid var(--border-color);
+    @apply mt-6 pt-6
+}
+.posts-list .post-title{
+    @apply text-xl sm:text-2xl
+}
+.posts-list .post p{
+    @apply text-base mb-1
+}
+.posts-list .featured-img{
+    @apply w-full sm:w-2/5
+}
+.posts-list .post-content{
+    @apply w-full sm:w-3/5 sm:pl-3 md:pl-7
+}
+.posts-list .post-content_footer{
+    color: var(--secondary-color);
+}
+.posts-list .post-categories{
+    @apply gap-0
+}
+.posts-list .post-categories li+li a{
+    border-color: var(--primary-color);
+    line-height: 14px;
+    @apply border-l pl-2 ml-2 py-0
+}
+.posts-list .post-categories a{
+    @apply text-sm font-bold uppercase -tracking-tighter px-0
+}
+.comment-count{
+    @apply flex items-center gap-1 ml-2
+}
+.sidebar-posts{
+    @apply w-full md:w-1/4 md:pl-4
+}
+.sidebar-title{
+    color: var(--primary-color);
+    @apply text-3xl mb-4
+}
+.sidebar-posts_list .post+.post{
+    @apply mt-4
+}
+.sidebar-posts_list .post-title{
+    @apply text-lg
+}
+.huge-posts-grid{
+    row-gap: 50px;
+    column-gap: 20px;
+    @apply flex flex-wrap
+}
+.huge-posts-grid > *{
+    @apply w-full
+}
+.huge-posts-grid .post-title{
+    @apply my-2
+}
+.pagination{
+    @apply flex justify-center items-center gap-1 mt-6
+}
+.pagination > *{
+    background-color: var(--light-color);
+    @apply inline-block px-4 py-2
+}
+.pagination a.next,.pagination a.prev{
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+.pagination .current{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+#main-container{
+    @apply flex flex-wrap lg:flex-nowrap
+}
+.main-post-container,
+.main-post-sidebar {
+    width: 100%;
+    flex-grow: 1;
+}
+.main-post-sidebar{
+    @apply mt-8 lg:mt-0
+}
+.wp-block-search__button{
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    @apply px-3 h-11 ml-0 !important
+}
+.wp-block-search__input{
+    @apply h-11 !important
+}
+.wp-block-search__inside-wrapper{
+    @apply flex 
+}
+.main-post-container .posts-list{
+    @apply w-full
+}
+.category-header{
+    @apply mb-5
+}
+.category-header h1{
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+    @apply text-3xl border-l-4 pl-4 font-normal
+}
+.category-header h1 span{
+    color: var(--dark-color);
+    @apply inline-block pl-4 font-semibold
+}
+.category-header p{
+    color: var(--secondary-color);
+    @apply mt-3
+}
+.post-layout-grid .posts-grid{
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.main-post-sidebar .wp-block-latest-posts, .main-post-sidebar .widget_post_views_counter_list_widget{
+    @apply w-full m-0
+}
+.wp-block-latest-posts > li{
+    @apply flex items-center justify-between gap-4 relative
+}
+.wp-block-latest-posts > li+li{
+    border-top: 1px solid var(--border-color);
+    @apply pt-4 mt-4
+}
+.wp-block-latest-posts .wp-block-latest-posts__post-date{
+    @apply absolute bottom-0 right-0
+}
+.wp-block-latest-posts__featured-image{
+    @apply w-full xsm:w-2/5
+}
+.wp-block-latest-posts__featured-image a{
+    @apply block
+}
+.wp-block-latest-posts__post-title{
+    @apply w-full xsm:w-3/5 font-medium pb-4
+}
+.main-post-sidebar .widget-title,
+.main-post-sidebar .wp-block-heading{
+    @apply flex items-center
+}
+.main-post-sidebar .widget-title:after,
+.main-post-sidebar .wp-block-heading:after{
+    content: "";
+    @apply block w-full
+}
+.widget_post_views_counter_list_widget li{
+    @apply flex flex-wrap justify-between gap-2
+}
+.widget_post_views_counter_list_widget img, .widget_post_views_counter_list_widget li > *{
+    @apply w-full
+}
+.widget_post_views_counter_list_widget .post-title{
+    @apply font-medium order-1 my-0
+}
+.widget_post_views_counter_list_widget .author, .widget_post_views_counter_list_widget .count{
+    @apply w-auto
+}
+#single-main-section .post-content_header{
+    @apply pb-2
+}
+.not-found{
+    @apply text-center sm:text-start
+}
+.text-404{
+    @apply w-full sm:w-1/4
+}
+.content-404{
+    @apply w-full sm:w-3/4
+}
+.not-found .search-submit{
+    border-color: var(--dark-color) !important;
+}
+.wrapper-widget{
+    @apply flex justify-center w-full flex-grow xxl:block xsm:w-1/2 sm:w-1/4 sm:text-start text-center
+}
+.wrapper-widget+.wrapper-widget{
+    @apply mt-5 xsm:mt-0
+}
+.wrapper-widget .widget{
+    @apply w-full md:w-auto
+}
+.contact-widget{
+    @apply w-full block mt-6 mx-auto xxl:mx-0 max-w-xl xxl:max-w-full xxl:my-0 text-center xxl:text-start
+}
+.simplefavorite-button{
+    color: var(--dark-color);
+    @apply text-3xl
+}
+.simplefavorite-button.active{
+    @apply text-red-600
+}
+.simplefavorite-button span{
+    font-size: inherit;
+}
+#page-header a{
+    display: block;
+}
+#page-header img,#page-banner img{
+    @apply w-full object-cover object-center
+}
+#page-banner img{
+    @apply rounded-none shadow-none
+}
+.customizer-content ul{
+    @apply pl-4
+}
+.contact-section .universal-header{
+    @apply text-center
+}
+.contact-content{
+    background-color: var(--white-color);
+    z-index: 1;
+    border-radius: 50px;
+    margin-top: -150px;
+    @apply shadow-2xl relative p-7 sm:p-10
+}
+.contact-content .si-wrapper-content{
+    @apply items-stretch
+}
+.main-content,.main-img{
+    @apply w-full md:w-1/2
+}
+.main-content{
+    @apply md:pr-8 lg:pr-14 mb-5 md:mb-0
+}
+.main-img img{
+    @apply shadow-none !important
+}
+.info-box{
+    @apply mb-3 max-w-md
+}
+.info-box a{
+    @apply text-lg
+}
+.info-title{
+    @apply text-xl sm:text-2xl
+}
+.info-box .desc,.info-box .site-social{
+    @apply mt-0.5
+}
+#favourite-btn{
+    @apply flex items-center gap-1
+}
+#favourite-btn a{
+    @apply text-lg underline relative overflow-hidden w-0 whitespace-pre text-end
+}
+#favourite-btn.active svg{
+    fill: var(--primary-color) !important;
+}
+#favourite-btn.active a{
+    @apply w-44
+}
+#favourite-posts-list .posts-list{
+    @apply w-full
+}
+#author-banner .share{
+    z-index: 1;
+    @apply absolute top-5 right-12 flex justify-center items-center rounded-full
+}
+.author-banner-bg{
+    @apply bg-cover bg-top bg-no-repeat
+}
+.author-content{
+    @apply flex items-center flex-wrap shadow-2xl gap-5 relative md:flex-nowrap p-5
+}
+.author-avatar{
+    @apply flex-shrink-0
+}
+.author-avatar img{
+    @apply shadow-2xl object-cover
+}
+.author-detail-header{
+    @apply flex items-center gap-2 pr-14
+}
+.author-detail p{
+    color: var(--secondary-color);
+}
+.author-social,.site-social{
+    @apply flex items-center gap-3 mt-3
+}
+.author-website,.author-email,.author-registration{
+    @apply flex items-center gap-2 mt-1
+}
+.post-password-form{
+    @apply text-center py-3
+}
+.post-password-form > p{
+    font-family: var(--heading-font);
+    font-weight: 500;
+}
+.post-password-form input[type="password"]::placeholder{
+    font-weight: 400;
+}
+.post-password-form input[type="submit"]{
+    @apply mt-2
+}
+.single-post .post-content_footer{
+    @apply mb-3
+}
+.copyright .si-wrapper-content{
+    @apply gap-4 justify-center text-center md:text-start md:justify-between
+}
+.comment-form .form-submit{
+    @apply mb-0 !important
+}
+.copyright-text strong {
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+.privacy-policy-link{
+    color: var(--white-color);
+    text-decoration: underline;
+}
+.contact-form,.contact-info{
+    @apply w-full md:w-1/2
+}
+.contact-form .mailpoet_paragraph:last-of-type{
+    @apply text-center !important
+}
+.mailpoet_checkbox_label{
+    display: flex !important;
+    @apply items-center gap-1
+}
+@media screen and (max-width: 600px){
+    .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
+        top: 0 !important;
+    }
+}
+@media screen and (min-width: 425px){
+    .si-search.active input{
+        width: 300px !important;
+    }
+}
+@media screen and (min-width: 640px){
+    .secondary-footer .site-info,.secondary-footer .newsletter{
+        max-width: calc(500px - 6px);
+    }
+    .contact-content{
+        margin-top: -200px;
+    }
+}
+@media screen and (min-width: 768px){
+    .si-search.active input{
+        width: 500px !important;
+    }
+    .contact-content{
+        margin-top: -300px;
+    }
+}
+@media screen and (min-width: 1440px){
+    .contact-widget{
+        width: calc(100% / 5);
+    }
+}
