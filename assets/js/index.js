@@ -114,7 +114,6 @@ jQuery(function ($) {
     /**
      * Share Link 
      */
-
     const shareBtn = $(".share");
 
     const shareData = {
@@ -130,6 +129,11 @@ jQuery(function ($) {
                 alert("Link not shared!");
             }
         });
+    }
+
+    // Plugin share button
+    if (screen.width < 768) {
+        $(".simplesocialbuttons").addClass("ssb-hide-float-buttons")
     }
 
     /**

@@ -50,9 +50,10 @@ get_sidebar();
                                         <?php the_excerpt(); ?>
                                     </div>
                                     <div class="post-content_footer">
-                                        <span class="author">By:
-                                            <a href="<?= get_author_posts_url(get_the_ID()) . get_the_author_meta('user_nicename', get_post_field('post_author', get_the_ID())) ?>">
-                                                <?php the_author(); ?>
+                                        <?php $author_id_1 = get_post_field('post_author', get_the_ID()); ?>
+                                        <span class="author">
+                                            <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
+                                                <?= get_the_author_meta('display_name', $author_id_1) ?>
                                             </a>
                                         </span>
                                         <span class="symbol">&#9866;</span>

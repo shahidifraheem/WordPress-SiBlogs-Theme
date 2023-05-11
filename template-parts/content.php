@@ -32,12 +32,14 @@
             <h2 class="post-title"><?php the_title(); ?></h2>
         </a>
         <div class="post-content_footer">
-            <span class="author">
-                <a href="<?= get_author_posts_url(get_the_ID()) . get_the_author_meta('user_nicename', get_post_field('post_author', get_the_ID())) ?>">
-                    <?php the_author(); ?>
-                </a>
-            </span>
-            <span class="symbol">&#9866;</span>
+            <?php if (!is_author()) : ?>
+                <span class="author">
+                    <a href="<?= get_author_posts_url(get_the_ID()) . get_the_author_meta('user_nicename', get_post_field('post_author', get_the_ID())) ?>">
+                        <?php the_author(); ?>
+                    </a>
+                </span>
+                <span class="symbol">&#9866;</span>
+            <?php endif; ?>
             <span class="date"><?= get_the_date(); ?></span>
         </div>
     </div>

@@ -68,12 +68,6 @@ $layout_style = "list";
                                                 <?= the_excerpt(); ?>
                                             </div>
                                             <div class="post-content_footer">
-                                                <span class="author">By:
-                                                    <a href="<?= get_author_posts_url(get_the_ID()) . get_the_author_meta('user_nicename', get_post_field('post_author', get_the_ID())) ?>">
-                                                        <?php the_author(); ?>
-                                                    </a>
-                                                </span>
-                                                <span class="symbol">&#9866;</span>
                                                 <span class="date"><?= get_the_date(); ?></span>
                                                 <?php if (get_comments_number() != 0) : ?>
                                                     <div class="comment-count">

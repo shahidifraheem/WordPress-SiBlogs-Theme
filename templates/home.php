@@ -87,7 +87,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                             <h2 class="post-title"><?= $main_post->post_title ?></h2>
                             <div class="post-content_footer">
                                 <?php $author_id_1 = get_post_field('post_author', $main_post->ID); ?>
-                                <span class="author">
+                                <span class="author">By:
                                     <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                         <?= get_the_author_meta('display_name', $author_id_1) ?>
                                     </a>
@@ -160,6 +160,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                             <div class="post-content_footer">
                                 <?php $author_id_1 = get_post_field('post_author', $trend_post->ID); ?>
                                 <span class="author">
+                                    By:
                                     <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                         <?= get_the_author_meta('display_name', $author_id_1) ?>
                                     </a>
@@ -324,7 +325,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                     <h2 class="post-title"><?= $huge_post->post_title ?></h2>
                                     <div class="post-content_footer">
                                         <?php $author_id_1 = get_post_field('post_author', $huge_post->ID); ?>
-                                        <span class="author">
+                                        <span class="author">By:
                                             <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                                 <?= get_the_author_meta('display_name', $author_id_1) ?>
                                             </a>
@@ -375,7 +376,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                     </a>
                                     <div class="post-content_footer">
                                         <?php $author_id_1 = get_post_field('post_author', $huge_post->ID); ?>
-                                        <span class="author">
+                                        <span class="author">By:
                                             <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                                 <?= get_the_author_meta('display_name', $author_id_1) ?>
                                             </a>
@@ -432,7 +433,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                             </a>
                             <div class="post-content_footer">
                                 <?php $author_id_1 = get_post_field('post_author', $category_post->ID); ?>
-                                <span class="author">
+                                <span class="author">By:
                                     <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                         <?= get_the_author_meta('display_name', $author_id_1) ?>
                                     </a>

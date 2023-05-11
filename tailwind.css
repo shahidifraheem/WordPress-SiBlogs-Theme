@@ -60,6 +60,12 @@ a:hover svg, a:hover svg path{
 img{
     @apply block max-w-full transition-all shadow hover:shadow-md
 }
+.si-wrapper{
+    @apply mx-auto
+}
+.si-wrapper-content {
+    @apply flex justify-between items-center flex-wrap
+}
 input:not(input[type="radio"], input[type="checkbox"]),textarea, select{
     border: 1px solid var(--border-color);
     @apply w-full h-10 outline-none transition-all
@@ -134,7 +140,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply rotate-0
 }
 .si-navbar .mega-menu, .si-navbar .has-sub-menu .sub-menu{
-    @apply absolute top-full invisible opacity-0 transition-all z-10 left-2/3 -translate-x-1/2 shadow-md
+    @apply absolute top-full invisible opacity-0 transition-all z-10 -translate-x-1/2 shadow-md
 }
 .si-navbar .has-sub-menu .sub-menu{
     left: unset;
@@ -147,7 +153,10 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply visible opacity-100
 }
 .si-navbar .mega-menu-grid{
-    @apply grid grid-cols-5
+    @apply grid grid-cols-4
+}
+.si-navbar .mega-menu-grid .menu-post,.has-post-grid .mega-menu-grid{
+    @apply px-0 !important
 }
 .si-navbar .menu-post h3{
     @apply text-base my-2
@@ -182,12 +191,16 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .si-search{
     position: relative;
+    height: 50px;
+    background-color: var(--white-color);
+    @apply flex items-center
 }
 .si-search button{
     @apply p-0 bg-transparent border-none w-10 h-10 flex justify-center items-center !important
 }
 .si-search input{
     width: 0px !important;
+    height: 50px !important;
     @apply border-none absolute right-0 top-0 bottom-0 mr-12 !important
 }
 .si-search.active input{
@@ -249,7 +262,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     color: var(--white-color);
     @apply relative text-lg pl-8 pr-20 xxl:pr-12 py-3 rounded-full overflow-hidden inline-block xxl:block mt-3
 }
-.email-btn:hover{
+.email-btn:hover span{
     color: var(--dark-color);
 }
 .email-btn .icon{
@@ -326,7 +339,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply justify-start
 }
 .post-content_header{
-    @apply flex items-center justify-between gap-4 mt-2
+    @apply flex items-center xsm:justify-between justify-center flex-wrap gap-4 mt-2
 }
 .post-categories{
     @apply flex gap-2 items-center
@@ -337,7 +350,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .post-content_footer{
     color: var(--secondary-color);
-    @apply flex items-center gap-1
+    @apply flex items-center flex-wrap justify-center xsm:justify-start gap-1
 }
 .overlay-post .post-content_footer{
     color: var(--white-color);
@@ -541,6 +554,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 #single-main-section .post-content_header{
     @apply pb-2
 }
+.post-axcerpt{
+    @apply pb-2
+}
 .not-found{
     @apply text-center sm:text-start
 }
@@ -600,14 +616,17 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .contact-content .si-wrapper-content{
     @apply items-stretch
 }
-.main-content,.main-img{
+.main-content,.main-img,.newsletter-content,.newsletter-img{
     @apply w-full md:w-1/2
 }
-.main-content{
+.main-content,.newsletter-content{
     @apply md:pr-8 lg:pr-14 mb-5 md:mb-0
 }
-.main-img img{
+.main-img img,.newsletter-img img{
     @apply shadow-none !important
+}
+.newsletter-content .mailpoet_form{
+    @apply my-3
 }
 .info-box{
     @apply mb-3 max-w-md
@@ -650,7 +669,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply flex-shrink-0
 }
 .author-avatar img{
-    @apply shadow-2xl object-cover
+    @apply shadow-2xl
 }
 .author-detail-header{
     @apply flex items-center gap-2 pr-14
@@ -705,6 +724,114 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     display: flex !important;
     @apply items-center gap-1
 }
+.about-section{
+    @apply px-4
+}
+.about-section .universal-header .title{
+    color: var(--dark-color);
+}
+.about-section .si-wrapper{
+    background-color: var(--light-color);
+    border-radius: 50px;
+    @apply p-8 md:p-14
+}
+.cards-grid{
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-5
+}
+.card{
+    background-color: var(--white-color);
+    @apply p-6 rounded-3xl shadow-lg
+}
+.comments-title{
+    border-bottom: 1px solid var(--border-color);
+    @apply text-2xl py-1 mb-4 uppercase relative
+}
+.comments-title::first-letter{
+    color: var(--primary-color);
+}
+.comments-title::after{
+    content: "";
+    height: 2px;
+    width: 60px;
+    bottom: -1px;
+    background-color: var(--primary-color);
+    @apply block absolute left-0
+}
+.comment-list{
+    @apply pl-0
+}
+.comment-meta{
+    @apply flex flex-wrap items-center gap-4
+}
+.comment-awaiting-moderation{
+    @apply w-full
+}
+.comment-meta .fn{
+    font-family: var(--heading-font);
+    @apply pl-5 pr-1 font-semibold
+}
+.comment-content,.comment-body .reply{
+    @apply ml-20
+}
+.comment-content{
+    @apply pb-4
+}
+.comment-body .reply{
+    border-bottom: 1px solid var(--border-color);
+    @apply mb-4 relative
+}
+.comment-body .reply:after{
+    content: "";
+    height: 1px;
+    width: 50px;
+    bottom: -1px;
+    background-color: var(--primary-color);
+    @apply block absolute right-0
+}
+.comment-body .reply a{
+    @apply py-1  text-base
+}
+.comment-author{
+    @apply flex items-center
+}
+.comment-author .avatar{
+    @apply rounded-full
+}
+.comment-body .reply{
+    @apply text-end
+}
+.comment .children{
+    @apply pl-3 sm:pl-6
+}
+.comment-metadata{
+    @apply ml-auto
+}
+.comment-metadata a{
+    color: var(--secondary-color);
+}
+#commentform {
+    background-color: var(--light-color);
+    gap: 0 20px;
+    @apply flex flex-wrap justify-between p-6 md:p-10
+}
+#commentform > *{
+    @apply w-full
+}
+.comment-form-email, .comment-form-author, .comment-form-url {
+    width: 100% !important;
+}
+.comment-form-cookies-consent{
+    @apply flex gap-2 items-center
+}
+.comment-reply-title{
+    @apply text-2xl flex items-center justify-between py-1
+}
+#cancel-comment-reply-link{
+    @apply text-base text-red-700
+}
+.comment-respond{
+    @apply py-4
+}
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
         top: 0 !important;
@@ -721,6 +848,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     }
     .contact-content{
         margin-top: -200px;
+    }
+    .comment-form-email, .comment-form-author, .comment-form-url {
+        width: calc(100% / 3 - 14px) !important;
     }
 }
 @media screen and (min-width: 768px){

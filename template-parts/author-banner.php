@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The author info banner template part file
  *
@@ -30,9 +31,12 @@ $linkedin_icon = file_get_contents(get_template_directory_uri() . "/assets/icons
 $twitter_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/twitter.svg");
 $mail_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/mail.svg");
 $internet_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/internet.svg");
-$badge_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/badge.svg");
 $share_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/share.svg");
 $date_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/date.svg");
+$badge_admin = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-admin.svg");
+$badge_editor = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-editor.svg");
+$badge_author = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-author.svg");
+$badge_contributor = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-contributor.svg");
 
 
 if (isset($author_info)) :
@@ -62,10 +66,24 @@ if (isset($author_info)) :
                     <div class="author-detail-header">
                         <h1 class="author-name"><?php the_author(); ?></h1>
                         <?php if ($author_role === "administrator") : ?>
-                            <div class="verify-badge" title="Verified Person">
-                                <?= $badge_icon ?>
+                            <div class="verify-badge" title="Verified Administrator">
+                                <?= $badge_admin ?>
                             </div>
-                        <?php endif; ?>
+                        <?php elseif ($author_role === "editor") : ?>
+                            <div class="verify-badge" title="Verified Editor">
+                                <?= $badge_editor ?>
+                            </div>
+                        <?php elseif ($author_role === "author") : ?>
+                            <div class="verify-badge" title="Verified Author">
+                                <?= $badge_author ?>
+                            </div>
+                        <?php elseif ($author_role === "contributor") : ?>
+                            <div class="verify-badge" title="Verified Contributor">
+                                <?= $badge_contributor ?>
+                            </div>
+                        <?php else :
+                            echo "";
+                        endif; ?>
                     </div>
                     <?php if ($author_bio != "") : ?>
                         <div class="desc">

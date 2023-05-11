@@ -26,22 +26,48 @@ h6 {
     font-weight: 600;
     color: var(--dark-color);
 }
-
-.login h1 a,
-.register h1 a {
+#login h1 a{
     width: 100%;
     height: 100%;
-    padding: 50px 0;
+    padding: 30px 0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    box-shadow: none;
 }
-
 #login {
-    width: 100%;
-    max-width: 400px;
+    width: 100% !important;
+    max-width: 450px;
 }
-
+input{
+    width: 100%;
+    border-radius: 25px !important;
+    border: 1px solid var(--border-color) !important;
+    outline: none !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    height: 35px !important;
+}
+input[type="checkbox"],input[type="radio"]{
+    accent-color: var(--primary-color);
+    width: 25px;
+    height: 25px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type="file"]{
+    padding-top: 5px;
+}
+.dashicons{
+    color: var(--primary-color) !important;
+}
+input:focus{
+    border-color: var(--primary-color);
+}
+#login form .input, #login input[type=password], #login input[type=text]{
+    font-size: 16px;
+}
 #login h2,
 .acf-field.acf-field-group > .acf-label {
     display: none;
@@ -54,4 +80,99 @@ h6 {
 .acf-label .description{
     margin-top: 0px !important;
     margin-bottom: 3px !important;
+}
+.message{
+    border-color: var(--primary-color) !important;
+}
+#login form{
+    border: none;
+    background-color: var(--light-color);
+    --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    padding: 50px;
+    border-radius: 25px;
+}
+#captcha{
+    padding-bottom: 10px;
+}
+#wp-submit,.button.button-primary{
+    border: none;
+    font-size: 16px;
+    padding: 0px 30px;
+    border-radius: 50px;
+    width: auto;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.button.button-primary{
+    display: block;
+}
+#wp-submit:hover,.button.button-primary:hover{
+    background-color: var(--dark-color);
+}
+.privacy-policy-link{
+    color: var(--dark-color);
+}
+.forgetmenot {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+#nav {
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#nav a {
+    text-decoration: none;
+    color: #50575e;
+    font-size: 16px;
+}
+#backtoblog a{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.privacy-policy-link:hover{
+    color: var(--primary-color);
+}
+.acf-fields.-border{
+    background-color: transparent !important; 
+    border: none !important;
+}
+#registerform .acf-field{
+    background-color: var(--light-color);
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.acf-url i{
+    top: 9px !important;
+}
+#captcha{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+}
+.captcha-label{
+    width: 100%;
+}
+.first-value,.second-value, .operator{
+    display: inline-block;
+    font-size: 16px;
+}
+#captcha-input{
+    margin: 0 0 0 10px;
+}
+label span{
+    color: rgb(218, 0, 0);
+}
+#login > a{
+    color: var(--primary-color);
+}
+@media screen and (max-width: 768px){
+    #login form{
+        padding: 25px;
+    }
 }

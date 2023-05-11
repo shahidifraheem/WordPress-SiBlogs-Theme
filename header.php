@@ -20,6 +20,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="manifest.json">
 	<?php wp_head(); ?>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500&display=swap');
@@ -35,6 +36,11 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			--light-color: #f7f7f7;
 			--heading-font: 'Jost', sans-serif;
 			--body-font: 'Rubik', sans-serif;
+		}
+
+		::selection {
+			background-color: var(--primary-color);
+			color: var(--white-color);
 		}
 
 		body {
@@ -56,7 +62,14 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			color: var(--dark-color);
 		}
 
-		a:hover {
+		a:hover,
+		a:hover>*,
+		a:hover h1,
+		a:hover h2,
+		a:hover h3,
+		a:hover h4,
+		a:hover h5,
+		a:hover h6 {
 			color: var(--primary-color);
 		}
 
@@ -99,15 +112,6 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			max-width: 1300px;
 			padding-left: 10px;
 			padding-right: 10px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.si-wrapper-content {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-wrap: wrap;
 		}
 
 		#si-header .si-wrapper,
@@ -129,6 +133,11 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 
 		.custom-logo {
 			max-width: 150px;
+			height: 50px;
+			-o-object-fit: contain;
+			object-fit: contain;
+			-o-object-position: left;
+			object-position: left;
 		}
 
 		#si-header .si-wrapper-content {
@@ -170,8 +179,20 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			background-color: var(--white-color);
 			border: 1px solid var(--border-color);
 			padding: 20px;
-			width: 1200px;
+			width: 1024px;
 			min-height: 325px;
+			border-radius: 30px;
+			left: 75%;
+		}
+
+		.has-post-grid .mega-menu {
+			min-height: 220px;
+		}
+
+		.si-navbar .mega-menu-grid {
+			padding-left: 20px;
+			padding-right: 20px;
+			gap: 12px;
 		}
 
 		.si-navbar .mega-menu>ul {
@@ -324,6 +345,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			justify-content: center;
 		}
 
+		/** Footer  */
 		.secondary-footer {
 			padding-top: 30px;
 			padding-bottom: 30px;
@@ -344,6 +366,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			background-color: var(--light-color);
 			padding-top: 30px;
 			padding-bottom: 30px;
+			border-radius: 50px 50px 0 0;
 		}
 
 		.primary-footer .si-wrapper-content {
@@ -358,7 +381,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 		.widget-title {
 			font-size: 22px;
 			margin-bottom: 10px;
-			color: var(--primary-color);
+			color: var(--dark-color);
 		}
 
 		.main-post-sidebar .widget-title,
@@ -417,6 +440,10 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			text-decoration: underline;
 		}
 
+		.customizer-content>* {
+			margin-bottom: 10px;
+		}
+
 		.customizer-content li,
 		.desc li {
 			list-style: disc;
@@ -439,6 +466,10 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 
 		.title {
 			font-size: 30px;
+			color: var(--dark-color);
+		}
+
+		.universal-header .title {
 			color: var(--primary-color);
 		}
 
@@ -557,6 +588,10 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			width: 170px;
 			border-radius: 50%;
 			border: 5px solid var(--primary-color);
+			-o-object-fit: contain;
+			object-fit: contain;
+			-o-object-position: center;
+			object-position: center;
 		}
 
 		.author-name {
@@ -580,8 +615,16 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			fill: var(--secondary-color);
 		}
 
-		.author>a {
+		.author>a,
+		.post-tags a {
 			text-decoration: underline;
+		}
+
+		.post-tags {
+			border-right: 1px solid var(--primary-color);
+			padding-right: 10px;
+			margin-right: 10px;
+			line-height: 16px;
 		}
 
 		#page-header img {
@@ -590,6 +633,10 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 
 		#page-banner img {
 			max-height: 300px;
+		}
+
+		.archive .main-section {
+			margin-bottom: 30px;
 		}
 
 		.text-404 {
@@ -613,10 +660,15 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			color: var(--white-color);
 		}
 
+		.wp-block-separator {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
 
 		@media screen and (min-width: 640px) {
 			.custom-logo {
-				max-width: 200px;
+				max-width: 110px;
 			}
 
 			#si-header .si-wrapper-content {
@@ -688,7 +740,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			}
 
 			.custom-logo {
-				max-width: 200px;
+				max-width: 110px;
 			}
 
 			.padding-y {
@@ -1012,3 +1064,4 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 				</div>
 			</div>
 		<?php endif; ?>
+		

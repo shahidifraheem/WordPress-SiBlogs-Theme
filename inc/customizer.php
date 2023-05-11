@@ -1,10 +1,10 @@
 <?php
-add_action('customize_register', 'portfolio_customize_register');
-function portfolio_customize_register($wp_customize)
+add_action('customize_register', 'siblogs_customize_register');
+function siblogs_customize_register($wp_customize)
 {
-    $wp_customize->add_panel('portfolio_settings', array(
+    $wp_customize->add_panel('siblogs_settings', array(
         'title' => 'Theme Settings',
-        'description' => 'This is portfolio theme settings',
+        'description' => 'This is siblogs theme settings',
         'priority' => 10,
     ));
 
@@ -14,7 +14,7 @@ function portfolio_customize_register($wp_customize)
      */
     $wp_customize->add_section('site_header', array(
         'title' => 'Header',
-        'panel' => 'portfolio_settings',
+        'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('button', array(
         'type' => 'theme_mod', //or option
@@ -47,12 +47,12 @@ function portfolio_customize_register($wp_customize)
      */
     $wp_customize->add_section('site_sidebar', array(
         'title' => 'Sidebar',
-        'panel' => 'portfolio_settings',
+        'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('description', array(
         'type' => 'theme_mod', //or option
         'capability' => 'edit_theme_options',
-        'default' => 'Inbio is a personal portfolio template. You can customize all.',
+        'default' => 'Inbio is a personal siblogs template. You can customize all.',
         'transport' => 'refresh', //postMessage
         'sanitize_callback' => 'esc_attr',
     ));
@@ -69,7 +69,7 @@ function portfolio_customize_register($wp_customize)
      */
     $wp_customize->add_section('social_icons', array(
         'title' => 'Social Icons',
-        'panel' => 'portfolio_settings',
+        'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('social_title', array(
         'type' => 'theme_mod', //or option
@@ -126,7 +126,7 @@ function portfolio_customize_register($wp_customize)
      */
     $wp_customize->add_section('skills_icons', array(
         'title' => 'Skills Icons',
-        'panel' => 'portfolio_settings',
+        'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('skills_title', array(
         'type' => 'theme_mod', //or option
@@ -210,7 +210,7 @@ function portfolio_customize_register($wp_customize)
      */
     $wp_customize->add_section('site_footer', array(
         'title' => 'Footer',
-        'panel' => 'portfolio_settings',
+        'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('copyright', array(
         'type' => 'theme_mod', //or option

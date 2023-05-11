@@ -390,54 +390,6 @@ function custom_excerpt_more($more)
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 
-/**
- * Login and Registration css and js
- *
- */
-function authenticate_scripts()
-{
-	wp_enqueue_style('authenticate-styles', get_template_directory_uri() . '/assets/css/authenticate.css');
-	wp_enqueue_script('authenticate-scripts', get_template_directory_uri() . '/assets/js/authenticate.js');
-}
-add_action('login_enqueue_scripts', 'authenticate_scripts');
-
-
-// Add custom message to login form
-add_action('login_form', 'add_custom_login_message');
-function add_custom_login_message()
-{
-	echo '<p>Welcome to our site! Please log in to continue.</p>';
-}
-
-// Add custom message to registration form
-add_action('register_form', 'add_custom_registration_message');
-function add_custom_registration_message()
-{
-	echo '<p>Join our community today! Fill out the form below to create your account.</p>';
-}
-
-// Add custom message to forgot password form
-add_action('lostpassword_form', 'add_custom_lostpassword_message');
-function add_custom_lostpassword_message()
-{
-	echo '<p>Forgot your password? No problem. Enter your email address below and we\'ll send you a link to reset it.</p>';
-}
-
-function custom_login_logo()
-{
-	$logo_id = get_theme_mod('custom_logo');
-	$logo_url = wp_get_attachment_image_src($logo_id)[0];
-
-	echo '<style type="text/css">
-        h1 a { background-image: url(' . $logo_url . ') !important; }
-    </style>';
-}
-add_action('login_head', 'custom_login_logo');
-
-function custom_login_logo_url()
-{
-	return home_url('/');
-}
-add_filter('login_headerurl', 'custom_login_logo_url');
+include_once "inc/authenticate.php";
 
 include_once "inc/admin-notices.php";
