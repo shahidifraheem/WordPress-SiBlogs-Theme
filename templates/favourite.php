@@ -51,7 +51,7 @@ get_sidebar();
                                     </div>
                                     <div class="post-content_footer">
                                         <?php $author_id_1 = get_post_field('post_author', get_the_ID()); ?>
-                                        <span class="author">
+                                        <span class="author">By: 
                                             <a href="<?= site_url() . "/author/" . get_the_author_meta('nicename', $author_id_1) ?>">
                                                 <?= get_the_author_meta('display_name', $author_id_1) ?>
                                             </a>

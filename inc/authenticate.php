@@ -12,7 +12,6 @@
 function authenticate_scripts()
 {
     wp_enqueue_style('authenticate-styles', get_template_directory_uri() . '/assets/css/authenticate.css');
-    wp_enqueue_script('authenticate-scripts', get_template_directory_uri() . '/assets/js/authenticate.js');
 }
 add_action('login_enqueue_scripts', 'authenticate_scripts');
 
@@ -151,6 +150,7 @@ add_filter('registration_errors', 'si_register_captcha_validation', 10, 3);
  *
  * @return void
  */
+// This function is called on forget password but now its not working properly that's I need to check this on live server
 function si_lost_password_action($user_data, $errors)
 {
     if (!$errors) {
@@ -160,10 +160,11 @@ function si_lost_password_action($user_data, $errors)
         $first_value = trim($_POST['first-value']);
         $second_value = trim($_POST['second-value']);
         $si_captcha = trim($_POST['si-captcha']);
-
+        
         if (!empty($first_value) && !empty($second_value)) {
             $captcha_sum = $first_value + $second_value;
             if ($captcha_sum == $si_captcha) {
+                show_data($user_data);
                 // New password send to the user
                 $new_password = wp_generate_password();
                 wp_set_password($new_password, $user_data->ID);

@@ -339,7 +339,10 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply justify-start
 }
 .post-content_header{
-    @apply flex items-center xsm:justify-between justify-center flex-wrap gap-4 mt-2
+    @apply flex items-center justify-between flex-wrap gap-4 mt-2
+}
+.single-post .post-content_header{
+    @apply justify-center xsm:justify-between
 }
 .post-categories{
     @apply flex gap-2 items-center
@@ -350,7 +353,10 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .post-content_footer{
     color: var(--secondary-color);
-    @apply flex items-center flex-wrap justify-center xsm:justify-start gap-1
+    @apply flex items-center flex-wrap gap-1
+}
+.single-post .post-content_footer{
+    @apply justify-center xsm:justify-start
 }
 .overlay-post .post-content_footer{
     color: var(--white-color);
@@ -831,6 +837,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .comment-respond{
     @apply py-4
+}
+.single-post .single-post-title, .single-post .post-axcerpt{
+    @apply text-center xsm:text-start
 }
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{

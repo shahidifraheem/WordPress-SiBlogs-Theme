@@ -1368,12 +1368,16 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
+.single-post .post-content_header{
+  justify-content: center;
+}
+
 @media (min-width: 425px){
-  .post-content_header{
+  .single-post .post-content_header{
     justify-content: space-between;
   }
 }
@@ -1394,12 +1398,15 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: 0.25rem
 }
 
+.single-post .post-content_footer{
+  justify-content: center;
+}
+
 @media (min-width: 425px){
-  .post-content_footer{
+  .single-post .post-content_footer{
     justify-content: flex-start;
   }
 }
@@ -2419,6 +2426,16 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .comment-respond{
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.single-post .single-post-title, .single-post .post-axcerpt{
+  text-align: center;
+}
+
+@media (min-width: 425px){
+  .single-post .single-post-title, .single-post .post-axcerpt{
+    text-align: start;
+  }
 }
 
 @media screen and (max-width: 600px){

@@ -65,7 +65,7 @@ $wishlist_icon = file_get_contents(get_template_directory_uri() . "/assets/icons
         <?php endif; ?>
         <?php if (has_excerpt()) : ?>
             <div class="post-axcerpt">
-                <p><?php the_excerpt(); ?></p>
+                <?php the_excerpt(); ?>
             </div>
         <?php endif; ?>
         <div id="main-container">
