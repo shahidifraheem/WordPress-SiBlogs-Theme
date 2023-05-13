@@ -150,7 +150,7 @@ add_filter('registration_errors', 'si_register_captcha_validation', 10, 3);
  *
  * @return void
  */
-// This function is called on forget password but now its not working properly that's I need to check this on live server
+// This function is called on forget password but now its not working properly that's why I also need to check this on live server
 function si_lost_password_action($user_data, $errors)
 {
     if (!$errors) {
