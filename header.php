@@ -100,6 +100,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 		#announcement a {
 			color: var(--white-color);
 			font-size: 14px;
+			text-decoration: underline;
 		}
 
 		#announcement a:hover {
@@ -232,7 +233,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 
 		#si-sidebar {
 			background-color: var(--white-color);
-			width: 300px;
+			width: 320px;
 			transition: .3s;
 		}
 
