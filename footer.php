@@ -111,8 +111,49 @@
 		</div>
 	</div>
 </footer>
+<div id="alert-overlay"></div>
+<div id="internet-alert">
+	<p><strong>Offline! </strong> Please enable internet connection to explore the website.</p>
+	<button id="internet-close-alert">&#10006;</button>
+</div>
 <?php wp_footer(); ?>
+<script>
+	/**
+	 * Checking Internet Connection Status
+	 */
+	const internetAlert = document.querySelector("#internet-alert");
+	const internetCloseAlert = document.querySelector("#internet-close-alert");
+	const alertOverlay = document.querySelector("#alert-overlay");
+	const links = document.querySelectorAll("a");
 
+	if (!navigator.onLine) {
+		links.forEach(link => {
+			link.addEventListener("click", function(e) {
+				e.preventDefault()
+			})
+		});
+		internetAlert.classList.add("alerting")
+		alertOverlay.classList.add("alerting")
+		alertOverlay.addEventListener("click", function() {
+			internetAlert.classList.add("active")
+			setTimeout(() => {
+				internetAlert.classList.remove("active")
+			}, 100);
+		})
+		window.addEventListener("click", function() {
+			internetAlert.classList.add("alerting")
+			alertOverlay.classList.add("alerting")
+		})
+	}
+	internetCloseAlert.addEventListener("click", function(e) {
+		e.stopPropagation()
+		internetAlert.classList.remove("alerting")
+		alertOverlay.classList.remove("alerting")
+	})
+</script>
+<?php if (get_field("footer_embed_code") != "") {
+	esc_html(the_field("footer_embed_code"));
+} ?>
 </body>
 
 </html>

@@ -2438,6 +2438,70 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   }
 }
 
+#alert-overlay{
+  z-index: 99999;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: none;
+  height: 100%;
+  width: 100%
+}
+
+#internet-alert{
+  z-index: 99999999;
+  color: var(--dark-color);
+  background-color: rgba(255, 0, 0, 0.308);
+  transition: .3s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+}
+
+#internet-alert.active{
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+#internet-alert strong{
+  color: var(--primary-color);
+}
+
+#internet-alert button{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+#internet-alert button:hover{
+  color: var(--primary-color);
+}
+
+#internet-alert.alerting,#alert-overlay.alerting{
+  display: flex;
+}
+
 @media screen and (max-width: 600px){
   .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
     top: 0 !important;

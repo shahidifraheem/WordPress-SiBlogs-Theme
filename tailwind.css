@@ -841,6 +841,32 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .single-post .single-post-title, .single-post .post-axcerpt{
     @apply text-center xsm:text-start
 }
+#alert-overlay{
+    z-index: 99999;
+    @apply hidden fixed top-0 left-0 right-0 bottom-0 w-full h-full
+}
+#internet-alert{ 
+    z-index: 99999999;
+    color: var(--dark-color);
+    background-color: rgba(255, 0, 0, 0.308);
+    transition: .3s;
+    @apply hidden items-center gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl px-10 py-6 rounded-full backdrop-blur-sm text-base
+}
+#internet-alert.active{
+    @apply scale-110
+}
+#internet-alert strong{
+    color: var(--primary-color);
+}
+#internet-alert button{
+    @apply text-2xl
+}
+#internet-alert button:hover{
+    color: var(--primary-color);
+}
+#internet-alert.alerting,#alert-overlay.alerting{
+    @apply flex
+}
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
         top: 0 !important;

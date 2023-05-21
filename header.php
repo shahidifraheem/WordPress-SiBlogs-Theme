@@ -20,7 +20,6 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="manifest.json">
 	<?php wp_head(); ?>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500&display=swap');
@@ -666,7 +665,9 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			margin-bottom: 20px;
 		}
 
-
+		#internet-alert{
+			font-family: var(--heading-font);
+		}
 		@media screen and (min-width: 640px) {
 			.custom-logo {
 				max-width: 110px;
@@ -810,6 +811,13 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			}
 		}
 	</style>
+	<?php
+	/**
+	 * Header Custom Code
+	 */
+	if (get_field("header_embed_code") != "") {
+		esc_html(the_field("header_embed_code"));
+	} ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -1065,4 +1073,3 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 				</div>
 			</div>
 		<?php endif; ?>
-		
