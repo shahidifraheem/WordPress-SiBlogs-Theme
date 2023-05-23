@@ -390,6 +390,25 @@ function custom_excerpt_more($more)
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 
+/**
+ * Restrict Custom header code input for administrators
+ *
+ * @param [type] $field
+ * @return void
+ */
+function restrict_embed_code_field($field)
+{
+	if (!current_user_can('administrator')) {
+		$field['label'] = '';
+		$field['type'] = 'hidden';
+		$field['value'] = '';
+		$field['wrapper']['class'] .= ' acf-hidden';
+	}
+	return $field;
+}
+add_filter('acf/prepare_field/name=header_embed_code', 'restrict_embed_code_field');
+add_filter('acf/prepare_field/name=footer_embed_code', 'restrict_embed_code_field');
+
 include_once "inc/authenticate.php";
 
 include_once "inc/admin-notices.php";
