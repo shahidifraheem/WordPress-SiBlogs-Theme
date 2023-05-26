@@ -1,5 +1,5 @@
 # Professional Theme
-> https://siblogs.com
+> https://siblogs.info
 
 # Developed this theme by using the following:
 - [x] WordPress Theme
