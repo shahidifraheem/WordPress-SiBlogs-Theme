@@ -684,7 +684,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     color: var(--secondary-color);
 }
 .author-social,.site-social{
-    @apply flex items-center gap-3 mt-3
+    @apply flex items-center flex-wrap gap-3 mt-3
 }
 .author-website,.author-email,.author-registration{
     @apply flex items-center gap-2 mt-1
