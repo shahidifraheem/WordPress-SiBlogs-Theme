@@ -409,6 +409,50 @@ function restrict_embed_code_field($field)
 add_filter('acf/prepare_field/name=header_embed_code', 'restrict_embed_code_field');
 add_filter('acf/prepare_field/name=footer_embed_code', 'restrict_embed_code_field');
 
+/**
+ * Hiding the header and footer fields boxes
+ *
+ * @return void
+ */
+function add_custom_admin_css()
+{
+	if (!current_user_can('administrator')) {
+		$custom_css = "
+        #acf-group_646242d6090d8, #acf-group_6462419c5f2d7 {
+            display: none !important;
+        }
+    ";
+		wp_add_inline_style('wp-admin', $custom_css);
+	}
+}
+add_action('admin_enqueue_scripts', 'add_custom_admin_css');
+
+/**
+ * Disable crawler for indexing the draft posts and pages
+ *
+ * @return void
+ */
+function draft_robot_tags($robots)
+{
+	if (is_singular() && is_preview() && in_array(get_post_status(), ['draft', 'auto-draft'])) {
+		// Remove the default robot meta tags
+		$robots = array(
+			'index' => false,
+			'follow' => false,
+			'max-image-preview' => 'none',
+			'max-snippet' => -1,
+			'max-video-preview' => -1
+		);
+
+		$robots['noindex'] = true;
+		$robots['nofollow'] = true;
+	}
+
+	return $robots;
+}
+add_filter('wp_robots', 'draft_robot_tags');
+
+
 include_once "inc/authenticate.php";
 
 include_once "inc/admin-notices.php";
