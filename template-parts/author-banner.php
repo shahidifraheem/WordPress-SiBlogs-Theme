@@ -9,26 +9,44 @@
  */
 
 $obj = get_queried_object();
+// Get the user ID
+$author_id = get_the_author_meta('ID');
 
 // Default Info
 $author_bio = get_the_author_meta('description');
 $author_email = get_the_author_meta('user_email');
 $author_website = get_the_author_meta('user_url');
 $author_registration = get_the_author_meta('user_registered');
+
+// Get the social media links using Yoast SEO user meta keys
+$facebook_url = get_the_author_meta('facebook');
+$instagram_url = get_the_author_meta('instagram');
+$linkedin_url = get_the_author_meta('linkedin');
+$twitter_url = get_the_author_meta('twitter');
+$myspace_url = get_the_author_meta('myspace');
+$pinterest_url = get_the_author_meta('pinterest');
+$soundcloud_url = get_the_author_meta('soundcloud');
+$youtube_url = get_the_author_meta('youtube');
+$wikipedia_url = get_the_author_meta('wikipedia');
+$mastodon_url = get_the_author_meta('mastodon');
+
+// Get Current Author role
 $author_role = $obj->roles[0];
 
 // Custom Info
 $author_info = get_field('author_info', $obj);
-$facebook = $author_info['facebook'];
-$twitter = $author_info['twitter'];
-$instagram = $author_info['instagram'];
-$linkedin = $author_info['linkedin'];
 
 // Social Icons
 $facebook_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/facebook-circle.svg");
 $instagram_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/instagram.svg");
 $linkedin_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/linkedin.svg");
 $twitter_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/twitter.svg");
+$myspace_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/myspace.svg");
+$pinterest_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/pinterest.svg");
+$soundcloud_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/soundcloud.svg");
+$youtube_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/youtube.svg");
+$wikipedia_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/wikipedia.svg");
+$mastodon_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/mastodon.svg");
 $mail_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/mail.svg");
 $internet_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/internet.svg");
 $share_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/share.svg");
@@ -69,12 +87,12 @@ if (isset($author_info)) :
                             <div class="verify-badge" title="Verified Administrator">
                                 <?= $badge_admin ?>
                             </div>
-                        <?php elseif ($author_role === "editor") : ?>
-                            <div class="verify-badge" title="Verified Editor">
+                        <?php elseif ($author_role === "editor" || $author_role === "wpseo_editor") : ?>
+                            <div class="verify-badge" title="<?= $author_role === "wpseo_editor" ? "Verified SEO Editor" : "Verified Editor" ?>">
                                 <?= $badge_editor ?>
                             </div>
-                        <?php elseif ($author_role === "author") : ?>
-                            <div class="verify-badge" title="Verified Author">
+                        <?php elseif ($author_role === "author" || $author_role === "wpseo_manager") : ?>
+                            <div class="verify-badge" title="<?= $author_role === "wpseo_manager" ? "Verified SEO Manager" : "Verified Author" ?>">
                                 <?= $badge_author ?>
                             </div>
                         <?php elseif ($author_role === "contributor") : ?>
@@ -119,31 +137,73 @@ if (isset($author_info)) :
                     <?php endif;
                     endif; ?>
                     <ul class="author-social">
-                        <?php if ($facebook != "") : ?>
+                        <?php if ($facebook_url != "") : ?>
                             <li class="facebook">
-                                <a href="<?= $facebook ?>">
+                                <a href="<?= $facebook_url ?>">
                                     <?= $facebook_icon ?>
                                 </a>
                             </li>
                         <?php endif;
-                        if ($instagram != "") : ?>
+                        if ($instagram_url != "") : ?>
                             <li class="instagram">
-                                <a href="<?= $instagram ?>">
+                                <a href="<?= $instagram_url ?>">
                                     <?= $instagram_icon ?>
                                 </a>
                             </li>
                         <?php endif;
-                        if ($twitter != "") : ?>
+                        if ($twitter_url != "") : ?>
                             <li class="twitter">
-                                <a href="<?= $twitter ?>">
+                                <a href="<?= $twitter_url ?>">
                                     <?= $twitter_icon ?>
                                 </a>
                             </li>
                         <?php endif;
-                        if ($linkedin != "") : ?>
+                        if ($linkedin_url != "") : ?>
                             <li class="linkedin">
-                                <a href="<?= $linkedin ?>">
+                                <a href="<?= $linkedin_url ?>">
                                     <?= $linkedin_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($youtube_url != "") : ?>
+                            <li class="youtube">
+                                <a href="<?= $youtube_url ?>">
+                                    <?= $youtube_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($pinterest_url != "") : ?>
+                            <li class="pinterest">
+                                <a href="<?= $pinterest_url ?>">
+                                    <?= $pinterest_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($soundcloud_url != "") : ?>
+                            <li class="pinterest">
+                                <a href="<?= $soundcloud_url ?>">
+                                    <?= $soundcloud_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($myspace_url != "") : ?>
+                            <li class="myspace">
+                                <a href="<?= $myspace_url ?>">
+                                    <?= $myspace_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($wikipedia_url != "") : ?>
+                            <li class="wikipedia">
+                                <a href="<?= $wikipedia_url ?>">
+                                    <?= $wikipedia_icon ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($mastodon_url != "") : ?>
+                            <li class="mastodon">
+                                <a href="<?= $mastodon_url ?>">
+                                    <?= $mastodon_icon ?>
                                 </a>
                             </li>
                         <?php endif; ?>
