@@ -867,6 +867,19 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 #internet-alert.alerting,#alert-overlay.alerting{
     @apply flex
 }
+.page-content .search-form input{
+    @apply rounded-tr-none rounded-br-none !important
+}
+.page-content .search-form button{
+    background-color: var(--primary-color) !important;
+    @apply py-2 px-5 rounded-tr-3xl rounded-br-3xl !important
+}
+.page-content .search-form button svg path{
+    stroke: var(--white-color) !important;
+}
+.page-content .search-form button:hover{
+    background-color: var(--primary-color) !important;
+}
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
         top: 0 !important;

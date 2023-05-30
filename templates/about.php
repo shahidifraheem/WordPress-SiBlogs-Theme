@@ -94,7 +94,7 @@ $newsletter = get_field('newsletter');
         </div>
     </section>
 <?php endif; ?>
-<section class="newsletter-section padding-y">
+<section class="newsletter-section padding-y" id="newsletter">
     <div class="si-wrapper">
         <div class="si-wrapper-content">
             <div class="newsletter-content">

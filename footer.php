@@ -27,7 +27,7 @@
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem impedit veniam voluptatum porro iusto, dicta sit at quaerat maxime.</p>
 				</div>
 				<div class="newsletter">
-					<a href="#" class="universal-btn">
+					<a href="#si-newsletter" class="universal-btn">
 						<span>Become a subscriber</span>
 						<span class="icon">&#10142;</span>
 					</a>

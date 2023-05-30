@@ -715,6 +715,10 @@ h6{
   display: grid;
 }
 
+.hidden{
+  display: none;
+}
+
 .resize{
   resize: both;
 }
@@ -2138,6 +2142,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .author-social,.site-social{
   margin-top: 0.75rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
 }
@@ -2500,6 +2505,29 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 
 #internet-alert.alerting,#alert-overlay.alerting{
   display: flex;
+}
+
+.page-content .search-form input{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.page-content .search-form button{
+  background-color: var(--primary-color) !important;
+  border-top-right-radius: 1.5rem !important;
+  border-bottom-right-radius: 1.5rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important
+}
+
+.page-content .search-form button svg path{
+  stroke: var(--white-color) !important;
+}
+
+.page-content .search-form button:hover{
+  background-color: var(--primary-color) !important;
 }
 
 @media screen and (max-width: 600px){
