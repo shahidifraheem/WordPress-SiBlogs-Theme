@@ -868,17 +868,20 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply flex
 }
 .page-content .search-form input{
-    @apply rounded-tr-none rounded-br-none !important
+    @apply rounded-none !important
 }
 .page-content .search-form button{
     background-color: var(--primary-color) !important;
-    @apply py-2 px-5 rounded-tr-3xl rounded-br-3xl !important
+    @apply py-2 px-5 !important
 }
 .page-content .search-form button svg path{
     stroke: var(--white-color) !important;
 }
 .page-content .search-form button:hover{
     background-color: var(--primary-color) !important;
+}
+html.translated-rtl .email-btn{
+    @apply pr-20
 }
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{

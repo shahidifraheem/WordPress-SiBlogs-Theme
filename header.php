@@ -74,6 +74,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 
 		p {
 			font-size: 16px;
+			color: var(--dark-color);
 		}
 
 		img {
@@ -94,15 +95,16 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			background-color: var(--dark-color);
 			padding-top: 10px;
 			padding-bottom: 10px;
+			position: relative;
 		}
 
-		#announcement a {
+		#announcement a:not(.gtranslate_wrapper a) {
 			color: var(--white-color);
 			font-size: 14px;
 			text-decoration: underline;
 		}
 
-		#announcement a:hover {
+		#announcement a:not(.gtranslate_wrapper a):hover {
 			--svg-color: var(--primary-color);
 			color: var(--primary-color);
 		}
@@ -182,7 +184,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			width: 1024px;
 			min-height: 325px;
 			border-radius: 30px;
-			left: 75%;
+			left: 115%;
 		}
 
 		.has-post-grid .mega-menu {
@@ -203,6 +205,7 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 		.si-navbar .mega-menu img {
 			width: 100%;
 			height: 150px;
+			-o-object-fit: cover;
 			object-fit: cover;
 		}
 
@@ -329,6 +332,9 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 		#si-sidebar .newsletter {
 			background-color: var(--light-color);
 			padding: 20px;
+			margin-left: -20px;
+			margin-right: -20px;
+			margin-bottom: -20px;
 		}
 
 		.newsletter {
@@ -665,9 +671,18 @@ $bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bar
 			margin-bottom: 20px;
 		}
 
-		#internet-alert{
+		#internet-alert {
 			font-family: var(--heading-font);
 		}
+
+		html.translated-ltr {
+			text-align: start;
+		}
+
+		html.translated-rtl, html.translated-rtl .contact-widget {
+			text-align: end;
+		}
+
 		@media screen and (min-width: 640px) {
 			.custom-logo {
 				max-width: 110px;

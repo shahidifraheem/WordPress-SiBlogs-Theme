@@ -141,4 +141,11 @@ jQuery(function ($) {
      */
     $(".post-password-form input[type='password']").attr('placeholder', 'Enter post password to view full content');
 
+    /**
+     * Remove chinese language extra name
+     */
+    let cn_lang = $('a[data-gt-lang="zh-CN"]');
+    cn_lang.contents().filter(function () {
+        return this.nodeType === 3;
+    }).replaceWith('Chinese');
 })

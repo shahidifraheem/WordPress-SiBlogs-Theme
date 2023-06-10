@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The announcement template part file
  *
@@ -26,6 +27,9 @@ $linkedin = file_get_contents(get_template_directory_uri() . "/assets/icons/link
                     )
                 ); ?>
             </div>
+            <?php
+            echo do_shortcode("[gtranslate]");
+            ?>
             <div class="social-icons">
                 <ul class="icons-list">
                     <li class="facebook">

@@ -452,6 +452,28 @@ function draft_robot_tags($robots)
 }
 add_filter('wp_robots', 'draft_robot_tags');
 
+/**
+ * Customizer Preview Javascript
+ *
+ * @return void
+ */
+function enqueue_customizer_sidebar_script()
+{
+	// Not working
+?>
+	<script>
+		jQuery(function($) {
+				console.log($('.customize-control-range'))
+				$('.customize-control-range').append('<span class="range-count">0</span>');
+				$('.customize-control-range input[type="range"]').change(function() {
+					$(this).next().text = $(this).val();
+				});
+		});
+	</script>
+<?php
+}
+add_action('customize_controls_enqueue_scripts', 'enqueue_customizer_sidebar_script');
+
 
 include_once "inc/authenticate.php";
 
