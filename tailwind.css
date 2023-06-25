@@ -102,9 +102,14 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .toggle-box{
     @apply block lg:hidden
 }
+#announcement{
+    z-index: 1000;
+    position: relative;
+}
 #si-header{
-    z-index: 5;
+    z-index: 999;
     width: 100%;
+    position: relative;
 }
 #si-header.header-fixed{
     @apply fixed top-0 left-0 right-0
@@ -116,8 +121,15 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply hidden lg:block
 }
 /* Navbar */
-.si-navbar{
-    @apply relative
+#si-header-navbar {
+    margin-right: auto;
+}
+#si-header-navbar.navbar-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+#si-header-navbar.navbar-right {
+    margin-left: auto;
 }
 .si-navbar > ul{
     @apply flex flex-wrap items-center
@@ -140,7 +152,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply rotate-0
 }
 .si-navbar .mega-menu, .si-navbar .has-sub-menu .sub-menu{
-    @apply absolute top-full invisible opacity-0 transition-all z-10 -translate-x-1/2 shadow-md
+    @apply absolute top-full invisible opacity-0 transition-all z-10  shadow-md
 }
 .si-navbar .has-sub-menu .sub-menu{
     left: unset;
@@ -237,7 +249,24 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply relative
 }
 .close-sidebar{
-    @apply absolute top-0 right-0 h-8 w-8 flex justify-center items-center
+    @apply absolute top-0 right-0 flex justify-center items-center
+}
+.menu-item-has-children{
+    @apply relative
+}
+.arrow-layer {
+    z-index: 2;
+    @apply absolute top-0 right-0 w-12 h-12 bg-transparent cursor-pointer
+}
+#sidebar-main-menu .menu-item-has-children > a:after{
+    z-index: 1;
+    @apply px-5 relative
+}
+#sidebar-main-menu .menu-item-has-children > a:before{
+    content: "";
+    z-index: 0;
+    background-color: var(--light-color);
+    @apply absolute right-0 top-0 w-12 h-12 block
 }
 .mailpoet_form{
     @apply p-0 !important
@@ -277,8 +306,8 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .breadcrumbs .si-wrapper {
     @apply flex flex-wrap items-center
 }
-.si-main-grid{
-    @apply grid gap-1;
+.si-main-grid, .posts-grid{
+    @apply grid;
 }
 .si-main-grid .overlay-post{
     @apply w-full
@@ -316,6 +345,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .featured-img img{
     transition: transform 1s;
     @apply w-full object-cover
+}
+.overlay-post .featured-img {
+    height: 100%;
 }
 .overlay-post .post-content{
     z-index: 1;
@@ -451,6 +483,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .huge-posts-grid > *{
     @apply w-full
 }
+.huge-posts-grid .post {
+    width: 100%;
+}
 .huge-posts-grid .post-title{
     @apply my-2
 }
@@ -480,6 +515,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .main-post-sidebar{
     @apply mt-8 lg:mt-0
 }
+.main-post-sidebar .widget>.wp-block-heading {
+    @apply mb-0 !important
+}
 .wp-block-search__button{
     color: var(--white-color);
     background-color: var(--primary-color);
@@ -493,6 +531,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .main-post-container .posts-list{
     @apply w-full
+}
+#category-main-section .si-main-grid{
+    @apply mb-5
 }
 .category-header{
     @apply mb-5
@@ -880,12 +921,89 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .page-content .search-form button:hover{
     background-color: var(--primary-color) !important;
 }
+.no-results .universal-btn > a{
+    color: inherit;
+    transition: inherit;
+}
 html.translated-rtl .email-btn{
     @apply pr-20
+}
+html.translated-ltr {
+    @apply text-start
+}
+html.translated-rtl,
+html.translated-rtl .contact-widget,
+html.translated-rtl input,
+html.translated-rtl select,
+html.translated-rtl textarea {
+    @apply text-end
+}
+html.translated-rtl .wrapper-widget {
+    @apply text-end
+}
+/* Language Switcher */
+#gt_float_wrapper {
+    position: absolute !important;
+    top: 10px;
+    right: 100px;
+    text-align: start;
+}
+#gt_float_wrapper  .gt_float_switcher a{
+    font-size: 15px !important;
+    font-family: var(--heading-font);
+}
+.gt_float_switcher{
+    @apply bg-transparent !important
+}
+.gt_float_switcher img {
+    width: 25px !important;
+}
+.gt_float_switcher .gt_options{
+    min-width: 175px !important;
+}
+.gt_float_switcher .gt-selected{
+    background-color: var(--dark-color) !important;
+    box-shadow: none !important;
+}
+.gt_float_switcher .gt-selected *{
+    font-family: var(--heading-font) !important;
+}
+.gt_float_switcher .gt-selected .gt-current-lang{
+    padding-top: 0px !important;
+    color: var(--white-color) !important;
+}
+.gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow{
+    filter: brightness(100%);
+}
+.gt_float_switcher .gt_options{
+    background-color: var(--white-color);
+}
+.gt_float_switcher .gt_options a{
+    transition: .3s !important;
+}
+.gt_float_switcher .gt_options a:hover{
+    background-color: var(--primary-color) !important;
+}
+.gt_float_switcher .gt-selected .gt-current-lang{
+    @apply font-semibold !important
+}
+.gt_float_switcher {
+    box-shadow: none !important;
+}
+html.translated-rtl[lang="ur"] font {
+    margin-bottom: 5px;
+}
+html.translated-rtl[lang=ur] #announcement font {
+    margin: 0 !important;
 }
 @media screen and (max-width: 600px){
     .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
         top: 0 !important;
+    }
+    #gt_float_wrapper{
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
     }
 }
 @media screen and (min-width: 425px){

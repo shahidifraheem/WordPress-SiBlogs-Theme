@@ -12,6 +12,13 @@
  * @since SI Blogs 1.0
  */
 
+$secondary_footer_description = get_theme_mod("secondary_footer_description", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem impedit veniam voluptatum porro iusto, dicta sit at quaerat maxime.");
+$secondary_footer_btn_text = get_theme_mod("secondary_footer_btn_text", "Become a subscriber");
+$secondary_footer_btn_arrow = get_theme_mod("secondary_footer_btn_arrow", "&#10142;");
+$secondary_footer_btn_url = get_theme_mod("secondary_footer_btn_url");
+$secondary_footer_btn_subtitle = get_theme_mod("secondary_footer_btn_subtitle", "Get all the latest posts delivered straight to your inbox.");
+$copyright_text = get_theme_mod("copyright_text", "Copyright © 2023. All rights reserved by SiBlogs");
+
 ?>
 </main>
 <footer id="si-footer">
@@ -24,16 +31,20 @@
 						the_custom_logo();
 					}
 					?>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem impedit veniam voluptatum porro iusto, dicta sit at quaerat maxime.</p>
+					<?php if ($secondary_footer_description != "") : ?>
+						<p><?= $secondary_footer_description ?></p>
+					<?php endif; ?>
 				</div>
 				<div class="newsletter">
-					<a href="#si-newsletter" class="universal-btn">
-						<span>Become a subscriber</span>
-						<span class="icon">&#10142;</span>
+					<a href="<?= $secondary_footer_btn_url ?>" class="universal-btn">
+						<span><?= $secondary_footer_btn_text ?></span>
+						<span class="icon"><?= $secondary_footer_btn_arrow ?></span>
 					</a>
-					<p>
-						<small>Get all the latest posts delivered straight to your inbox.</small>
-					</p>
+					<?php if ($secondary_footer_btn_subtitle != "") : ?>
+						<p>
+							<small><?= $secondary_footer_btn_subtitle ?></small>
+						</p>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -98,7 +109,7 @@
 		<div class="si-wrapper">
 			<div class="si-wrapper-content">
 				<div class="copyright-text">
-					<strong>Copyright &copy; 2023. All Rights Reserved.</strong>
+					<strong><?= $copyright_text ?></strong>
 				</div>
 				<div class="privacy-policy-box">
 					<?php

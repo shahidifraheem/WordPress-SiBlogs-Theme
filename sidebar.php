@@ -12,6 +12,9 @@
  * @since SI Blogs 1.0
  */
 $close = file_get_contents(get_template_directory_uri() . "/assets/icons/close.svg");
+$sidebar_newsletter_title = get_theme_mod("sidebar_newsletter_title", "Newsletter");
+$sidebar_newsletter_description = get_theme_mod("sidebar_newsletter_description", "Inbio is a personal siblogs template. You can customize all.'");
+
 ?>
 <div id="sidebar-overlay"></div>
 <aside id="si-sidebar">
@@ -37,8 +40,12 @@ $close = file_get_contents(get_template_directory_uri() . "/assets/icons/close.s
             ); ?>
         </nav>
         <div class="newsletter">
-            <h3>Newsletter</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, repellat.</p>
+            <?php if ($sidebar_newsletter_title != "") : ?>
+                <h3><?= $sidebar_newsletter_title ?></h3>
+            <?php endif;
+            if ($sidebar_newsletter_description != "") : ?>
+                <p><?= $sidebar_newsletter_description ?></p>
+            <?php endif; ?>
             <?= do_shortcode('[mailpoet_form id="1"]') ?>
         </div>
     </div>

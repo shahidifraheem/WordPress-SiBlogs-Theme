@@ -11,6 +11,10 @@
 $facebook = file_get_contents(get_template_directory_uri() . "/assets/icons/facebook.svg");
 $instagram = file_get_contents(get_template_directory_uri() . "/assets/icons/instagram.svg");
 $linkedin = file_get_contents(get_template_directory_uri() . "/assets/icons/linkedin.svg");
+
+$facebook_url = get_theme_mod('facebook', "#");
+$instagram_url = get_theme_mod('instagram', "#");
+$linkedin_url = get_theme_mod('linkedin', "#");
 ?>
 <div id="announcement">
     <div class="si-wrapper">
@@ -29,26 +33,33 @@ $linkedin = file_get_contents(get_template_directory_uri() . "/assets/icons/link
             </div>
             <?php
             echo do_shortcode("[gtranslate]");
-            ?>
-            <div class="social-icons">
-                <ul class="icons-list">
-                    <li class="facebook">
-                        <a href="#">
-                            <?= $facebook ?>
-                        </a>
-                    </li>
-                    <li class="instagram">
-                        <a href="#">
-                            <?= $instagram ?>
-                        </a>
-                    </li>
-                    <li class="linkedin">
-                        <a href="#">
-                            <?= $linkedin ?>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            if ($show_social_icons) : ?>
+                <div class="social-icons">
+                    <ul class="icons-list">
+                        <?php if ($facebook_url != "") : ?>
+                            <li class="facebook">
+                                <a href="<?= $facebook_url ?>">
+                                    <?= $facebook ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($instagram_url != "") : ?>
+                            <li class="instagram">
+                                <a href="<?= $instagram_url ?>">
+                                    <?= $instagram ?>
+                                </a>
+                            </li>
+                        <?php endif;
+                        if ($linkedin_url != "") : ?>
+                            <li class="linkedin">
+                                <a href="<?= $linkedin_url ?>">
+                                    <?= $linkedin ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

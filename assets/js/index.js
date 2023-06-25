@@ -39,8 +39,8 @@ jQuery(function ($) {
     /**
      * Sidebar 
      */
-    $('#sidebar-main-menu .menu-item-has-children a').click(function (e) {
-        e.preventDefault();
+    $(".menu-item-has-children").append("<span class='arrow-layer'></span>");
+    $('#sidebar-main-menu .menu-item-has-children .arrow-layer').click(function () {
         $(this).parent().siblings().removeClass('active');
         $(this).parent().siblings().find('.sub-menu').slideUp();
         $(this).parent().toggleClass('active');
