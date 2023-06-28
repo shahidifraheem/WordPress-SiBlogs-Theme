@@ -227,6 +227,8 @@ $desktop_main_posts_height = get_theme_mod("desktop_main_posts_height", 275);
 $mobile_main_posts_height = get_theme_mod("mobile_main_posts_height", 300);
 $dekstop_posts_column = get_theme_mod("dekstop_posts_column", 3);
 $tablet_posts_column = get_theme_mod("tablet_posts_column", 2);
+$dekstop_huge_posts_column = get_theme_mod("dekstop_huge_posts_column", 3);
+$tablet_huge_posts_column = get_theme_mod("tablet_huge_posts_column", 2);
 $mobile_posts_column = get_theme_mod("mobile_posts_column", "1fr");
 $posts_grid_gap = get_theme_mod("posts_grid_gap", 25);
 $post_default_img_height = get_theme_mod("post_default_img_height", 240);
@@ -239,7 +241,34 @@ $badge_bg_color = get_theme_mod("badge_bg_color", "#2D93AD");
 $badge_text_color = get_theme_mod("badge_text_color", "#ffffff");
 $badge_inner_offsetx = get_theme_mod("badge_inner_offsetx", 8);
 $badge_inner_offsety = get_theme_mod("badge_inner_offsety", 2);
+$posts_container_width = get_theme_mod("posts_container_width", 70);
+$posts_container_offset_right = get_theme_mod("posts_container_offset_right", 50);
+$posts_sidebar_container_width = get_theme_mod("posts_sidebar_container_width", 30);
 
+// Author
+$author_banner_height = get_theme_mod("author_banner_height", 290);
+$author_wrapper_offset_top = get_theme_mod("author_wrapper_offset_top", 100);
+$author_wrapper_offset_bottom = get_theme_mod("author_wrapper_offset_bottom", 20);
+$author_wrapper_bg = get_theme_mod("author_wrapper_bg", "#ffffff");
+$author_wrapper_roundness = get_theme_mod("author_wrapper_roundness", 40);
+$desktop_author_wrapper_inner_offset = get_theme_mod("desktop_author_wrapper_inner_offset", 30);
+$mobile_author_wrapper_inner_offset = get_theme_mod("mobile_author_wrapper_inner_offset", 20);
+$desktop_author_wrapper_gap = get_theme_mod("desktop_author_wrapper_gap", 50);
+$mobile_author_wrapper_gap = get_theme_mod("mobile_author_wrapper_gap", 25);
+$author_avatar_size = get_theme_mod("author_avatar_size", 170);
+$author_avatar_roundness = get_theme_mod("author_avatar_roundness", 50);
+$author_avatar_outline_width = get_theme_mod("author_avatar_outline_width", 5);
+$author_avatar_outline_color = get_theme_mod("author_avatar_outline_color", "#2D93AD");
+$author_avatar_fill_style = get_theme_mod("author_avatar_fill_style", "cover");
+$author_avatar_position = get_theme_mod("author_avatar_position", "center");
+$author_name_size = get_theme_mod("author_name_size", 35);
+$author_icons_size = get_theme_mod("author_icons_size", 25);
+$author_icons_color = get_theme_mod("author_icons_color", "#8a8a8a");
+$share_button_size = get_theme_mod("share_button_size", 50);
+$share_button_bg = get_theme_mod("share_button_bg", "#f7f7f7");
+$share_button_color = get_theme_mod("share_button_color", "#242424");
+$author_links_style = get_theme_mod("author_links_style", "underline");
+$desktop_author_posts_list_img_height = get_theme_mod("desktop_author_posts_list_img_height", 300);
 
 // Footer
 $secondary_footer_logo_width = get_theme_mod("secondary_footer_logo_width", 110);
@@ -792,61 +821,67 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		/* Author Page */
 		.author-banner-bg {
-			height: 290px;
+			height: <?= $author_banner_height ?>px;
 		}
 
 		.author-wrapper {
-			margin-top: -100px;
-			margin-bottom: 20px;
+			margin-top: -<?= $author_wrapper_offset_top ?>px;
+			margin-bottom: <?= $author_wrapper_offset_bottom ?>px;
 			position: relative;
 		}
 
 		#author-banner .share {
-			height: 50px;
-			width: 50px;
-			background-color: var(--light-color);
+			height: <?= $share_button_size ?>px;
+			width: <?= $share_button_size ?>px;
+			background-color: <?= $share_button_bg ?>;
+		}
+
+		#author-banner .share svg {
+			fill: <?= $share_button_color ?>;
 		}
 
 		.author-content {
-			background-color: var(--white-color);
-			border-radius: 40px;
+			background-color: <?= $author_wrapper_bg ?>;
+			border-radius: <?= $author_wrapper_roundness ?>px;
+			gap: <?= $mobile_author_wrapper_gap ?>px;
+			padding: <?= $mobile_author_wrapper_inner_offset ?>px;
 		}
 
 		.author-avatar img {
-			height: 170px;
-			width: 170px;
-			border-radius: 50%;
-			border: 5px solid var(--primary-color);
-			-o-object-fit: contain;
-			object-fit: contain;
-			-o-object-position: center;
-			object-position: center;
+			height: <?= $author_avatar_size ?>px;
+			width: <?= $author_avatar_size ?>px;
+			border-radius: <?= $author_avatar_roundness . "%" ?>;
+			border: <?= $author_avatar_outline_width ?>px solid <?= $author_avatar_outline_color ?>;
+			-o-object-fit: <?= $author_avatar_fill_style ?>;
+			object-fit: <?= $author_avatar_fill_style ?>;
+			-o-object-position: <?= $author_avatar_position ?>;
+			object-position: <?= $author_avatar_position ?>;
 		}
 
 		.author-name {
-			font-size: 35px;
+			font-size: <?= $author_name_size ?>px;
 		}
 
 		.author-social svg,
-		.site-socialsvg {
-			width: 25px;
-			height: 25px;
+		.site-social svg {
+			width: <?= $author_icons_size ?>px;
+			height: <?= $author_icons_size ?>px;
 		}
 
 		.author-social .instagram svg,
 		.site-social .instagram svg {
-			width: calc(25px - 3px);
-			height: calc(25px - 3px);
+			width: calc(<?= $author_icons_size ?>px - 5px);
+			height: calc(<?= $author_icons_size ?>px - 5px);
 		}
 
 		.author-social path,
 		.site-social path {
-			fill: var(--secondary-color);
+			fill: <?= $author_icons_color ?>;
 		}
 
 		.author>a,
 		.post-tags a {
-			text-decoration: underline;
+			text-decoration: <?= $author_links_style ?>;
 		}
 
 		/** General Pages */
@@ -995,7 +1030,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			}
 
 			.huge-posts-grid .post {
-				width: calc(100% / 2 - 14px);
+				width: calc(100% / <?= $tablet_huge_posts_column ?> - 14px);
 			}
 
 			.title {
@@ -1038,13 +1073,13 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			}
 
 			.author-content {
-				gap: 50px;
-				padding: 30px;
+				gap: <?= $desktop_author_wrapper_gap ?>px;
+				padding: <?= $desktop_author_wrapper_inner_offset ?>px;
 			}
 
 			#author-main-section .posts-list img,
 			#favourite-posts-list .posts-list img {
-				height: 300px;
+				height: <?= $desktop_author_posts_list_img_height ?>px;
 			}
 
 			.posts-grid {
@@ -1057,7 +1092,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			}
 
 			.huge-posts-grid .post {
-				width: calc(100% / 3 - 14px);
+				width: calc(100% / <?= $dekstop_huge_posts_column ?> - 14px);
 			}
 		}
 
@@ -1068,18 +1103,12 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			}
 
 			.main-post-container {
-				width: calc(70% - 50px);
-				padding-right: 50px;
+				width: calc(<?= $posts_container_width . "%" ?> - <?= $posts_container_offset_right ?>px);
+				padding-right: <?= $posts_container_offset_right ?>px;
 			}
 
 			.main-post-sidebar {
-				width: calc(30%);
-			}
-		}
-
-		@media screen and (min-width: 1440px) {
-			.wrapper-widget {
-				width: calc(100% / 5);
+				width: calc(<?= $posts_sidebar_container_width . "%" ?>);
 			}
 		}
 	</style>
@@ -1116,8 +1145,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 					}
 					?>
 				</div>
-				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : "";
-											$navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
+				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : "";$navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
 					<nav class="si-navbar">
 						<?php
 						$menu_name = 'si-main-menu';
@@ -1144,10 +1172,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 															endforeach;
 															if (!empty($sub_items)) : $i = 1;
 																foreach ($sub_items as $sub_item) : ?>
-																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0];
-																														if ($i++ == 1) {
-																															echo " active";
-																														} ?>" <?php endif; ?>>
+																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0];if ($i++ == 1) {echo " active";} ?>" <?php endif; ?>>
 																		<a href="<?= $sub_item->url ?>"><?= $sub_item->title ?></a>
 																		<?php
 																		// Reterieving sub inner items

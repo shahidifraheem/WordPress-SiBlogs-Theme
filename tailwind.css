@@ -710,7 +710,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply bg-cover bg-top bg-no-repeat
 }
 .author-content{
-    @apply flex items-center flex-wrap shadow-2xl gap-5 relative md:flex-nowrap p-5
+    @apply flex items-center flex-wrap shadow-2xl gap-5 relative md:flex-nowrap
 }
 .author-avatar{
     @apply flex-shrink-0
@@ -1032,6 +1032,9 @@ html.translated-rtl[lang=ur] #announcement font {
 }
 @media screen and (min-width: 1440px){
     .contact-widget{
+        width: calc(100% / 5);
+    }
+    .wrapper-widget {
         width: calc(100% / 5);
     }
 }

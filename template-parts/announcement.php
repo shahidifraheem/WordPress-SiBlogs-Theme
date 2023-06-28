@@ -15,6 +15,7 @@ $linkedin = file_get_contents(get_template_directory_uri() . "/assets/icons/link
 $facebook_url = get_theme_mod('facebook', "#");
 $instagram_url = get_theme_mod('instagram', "#");
 $linkedin_url = get_theme_mod('linkedin', "#");
+$show_social_icons = get_theme_mod('show_social_icons', true);
 ?>
 <div id="announcement">
     <div class="si-wrapper">

@@ -1972,6 +1972,66 @@ function siblogs_customize_register($wp_customize)
         'type' => 'text',
         'section' => 'si_home',
     ));
+    $wp_customize->add_setting('dekstop_huge_posts_column', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 3,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('dekstop_huge_posts_column', array(
+        'label' => _('Desktop Huge Posts Column'),
+        'type' => 'text',
+        'section' => 'si_home',
+    ));
+    $wp_customize->add_setting('tablet_huge_posts_column', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 2,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('tablet_huge_posts_column', array(
+        'label' => _('Tablet Huge Posts Column'),
+        'type' => 'text',
+        'section' => 'si_home',
+    ));
+    $wp_customize->add_setting('posts_container_width', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 70,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('posts_container_width', array(
+        'label' => _('Posts Container Width'),
+        'type' => 'text',
+        'section' => 'si_home',
+    ));
+    $wp_customize->add_setting('posts_container_offset_right', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 50,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('posts_container_offset_right', array(
+        'label' => _('Posts Container Offset Right'),
+        'type' => 'text',
+        'section' => 'si_home',
+    ));
+    $wp_customize->add_setting('posts_sidebar_container_width', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 30,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('posts_sidebar_container_width', array(
+        'label' => _('Posts Sidebar Container Width'),
+        'type' => 'text',
+        'section' => 'si_home',
+    ));
 
     /**
      * Widgets
@@ -2563,7 +2623,7 @@ function siblogs_customize_register($wp_customize)
      * 
      */
     $wp_customize->add_section('site_author', array(
-        'title' => 'Author Page',
+        'title' => 'Author',
         'panel' => 'siblogs_settings',
     ));
     $wp_customize->add_setting('author_banner_height', array(
@@ -2574,9 +2634,264 @@ function siblogs_customize_register($wp_customize)
         'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control('author_banner_height', array(
-        'label' => _('Author Banner Height'),
+        'label' => _('Banner Height'),
         'type' => 'text',
-        'section' => 'site_footer',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_wrapper_offset_top', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 100,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_wrapper_offset_top', array(
+        'label' => _('Wrapper Offset Top'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_wrapper_offset_bottom', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 20,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_wrapper_offset_bottom', array(
+        'label' => _('Wrapper Offset Bottom'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_wrapper_bg', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'author_wrapper_bg', array(
+        'label' => __('Wrapper Background Color', 'siblogs'),
+        'section' => 'site_author',
+        'settings' => 'author_wrapper_bg',
+    )));
+    $wp_customize->add_setting('author_wrapper_roundness', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 40,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_wrapper_roundness', array(
+        'label' => _('Wrapper Roundness'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('desktop_author_wrapper_inner_offset', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 30,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('desktop_author_wrapper_inner_offset', array(
+        'label' => _('Desktop Wrapper Inner Offset'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('mobile_author_wrapper_inner_offset', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 20,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('mobile_author_wrapper_inner_offset', array(
+        'label' => _('Mobile Wrapper Inner Offset'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('desktop_author_wrapper_gap', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 50,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('desktop_author_wrapper_gap', array(
+        'label' => _('Desktop Wrapper Gap'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('mobile_author_wrapper_gap', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 25,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('mobile_author_wrapper_gap', array(
+        'label' => _('Mobile Wrapper Gap'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_avatar_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 170,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_avatar_size', array(
+        'label' => _('Avatar Size'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_avatar_roundness', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 50,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_avatar_roundness', array(
+        'label' => _('Avatar Roundness'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_avatar_outline_width', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 5,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_avatar_outline_width', array(
+        'label' => _('Avatar Outline Width'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_avatar_outline_color', array(
+        'default' => '#2D93AD',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'author_avatar_outline_color', array(
+        'label' => __('Avatar Outline Color', 'siblogs'),
+        'section' => 'site_author',
+        'settings' => 'author_avatar_outline_color',
+    )));
+    $wp_customize->add_setting('author_avatar_fill_style', array(
+        'default' => 'cover',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('author_avatar_fill_style', array(
+        'label' => __('Avatar Fill Style', 'siblogs'),
+        'section' => 'si_forms',
+        'type' => 'select',
+        'choices' => array(
+            'none' => __('Default', 'siblogs'),
+            'cover' => __('Cover', 'siblogs'),
+            'contain' => __('Contain', 'siblogs'),
+        ),
+    ));
+    $wp_customize->add_setting('author_avatar_position', array(
+        'default' => 'center',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('author_avatar_position', array(
+        'label' => __('Avatar Position', 'siblogs'),
+        'section' => 'si_forms',
+        'type' => 'select',
+        'choices' => array(
+            'center' => __('Default', 'siblogs'),
+            'left' => __('Left', 'siblogs'),
+            'Right' => __('Right', 'siblogs'),
+            'Bottom' => __('Bottom', 'siblogs'),
+        ),
+    ));
+    $wp_customize->add_setting('author_links_style', array(
+        'default' => 'underline',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('author_links_style', array(
+        'label' => __('Links Style', 'siblogs'),
+        'section' => 'si_forms',
+        'type' => 'select',
+        'choices' => array(
+            'none' => __('Default', 'siblogs'),
+            'underline' => __('underline', 'siblogs'),
+        ),
+    ));
+    $wp_customize->add_setting('author_name_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 35,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_name_size', array(
+        'label' => _('Name Size'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_icons_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 25,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('author_icons_size', array(
+        'label' => _('Icons Size'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('author_icons_color', array(
+        'default' => '#8a8a8a',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'author_icons_color', array(
+        'label' => __('Icons Color', 'siblogs'),
+        'section' => 'site_author',
+        'settings' => 'author_icons_color',
+    )));
+    $wp_customize->add_setting('share_button_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 50,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('share_button_size', array(
+        'label' => _('Share Button Size'),
+        'type' => 'text',
+        'section' => 'site_author',
+    ));
+    $wp_customize->add_setting('share_button_bg', array(
+        'default' => '#f7f7f7',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'share_button_bg', array(
+        'label' => __('Share Button Background Color', 'siblogs'),
+        'section' => 'site_author',
+        'settings' => 'share_button_bg',
+    )));
+    $wp_customize->add_setting('share_button_color', array(
+        'default' => '#242424',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'share_button_color', array(
+        'label' => __('Share Button Color', 'siblogs'),
+        'section' => 'site_author',
+        'settings' => 'share_button_color',
+    )));
+    $wp_customize->add_setting('desktop_author_posts_list_img_height', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 300,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('desktop_author_posts_list_img_height', array(
+        'label' => _('Desktop Posts list Image Height'),
+        'type' => 'text',
+        'section' => 'site_author',
     ));
 
     /**
