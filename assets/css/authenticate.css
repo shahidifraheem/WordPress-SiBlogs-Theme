@@ -171,6 +171,15 @@ label span{
 #login > a{
     color: var(--primary-color);
 }
+#language-switcher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#language-switcher .button{
+    width: auto;
+}
 @media screen and (max-width: 768px){
     #login form{
         padding: 25px;
