@@ -240,7 +240,7 @@ function siblogs_customize_register($wp_customize)
     $wp_customize->add_setting('headings_font_weight', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
-        'default' => 500,
+        'default' => 600,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));

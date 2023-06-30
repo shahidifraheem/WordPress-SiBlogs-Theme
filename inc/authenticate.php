@@ -93,8 +93,12 @@ function si_login_captcha_validation()
         if (!empty($first_value) && !empty($second_value)) {
             $captcha_sum = $first_value + $second_value;
             if ($captcha_sum == $si_captcha) {
-                // Custom field is filled, log the user in
-                global $user;
+                // Get the current user object
+                $user = wp_get_current_user();
+                
+                // Get the user's login name
+                $username = $user->user_login;
+                $user = get_user_by('login', $username);
                 return $user;
             } else {
                 return new WP_Error('custom_field_error', __('<strong>ERROR</strong>: Invalid Captcha.'));
@@ -107,7 +111,7 @@ function si_login_captcha_validation()
         return new WP_Error('custom_field_error', __('<strong>ERROR</strong>: Please fill the captcha.'));
     }
 }
-add_filter('wp_authenticate_user', 'si_login_captcha_validation');
+add_filter('wp_login', 'si_login_captcha_validation');
 
 /**
  * Registration Captcha Validation
@@ -164,7 +168,6 @@ function si_lost_password_action($user_data, $errors)
         if (!empty($first_value) && !empty($second_value)) {
             $captcha_sum = $first_value + $second_value;
             if ($captcha_sum == $si_captcha) {
-                show_data($user_data);
                 // New password send to the user
                 $new_password = wp_generate_password();
                 wp_set_password($new_password, $user_data->ID);
