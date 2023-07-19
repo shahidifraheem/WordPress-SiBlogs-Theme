@@ -1107,9 +1107,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 
 #si-sidebar{
+  top: 120px;
   visibility: hidden;
   position: fixed;
-  top: 0px;
   left: 0px;
   bottom: 0px;
   z-index: 20;
@@ -1117,7 +1117,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   overflow-y: auto;
-  opacity: 0;
+  opacity: 0
 }
 
 #si-sidebar.active{
@@ -1128,13 +1128,31 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 
 .admin-bar #si-sidebar{
-  top: 2.75rem;
+  top: 10rem;
 }
 
 @media (min-width: 768px){
   .admin-bar #si-sidebar{
-    top: 2rem;
+    top: 9rem;
   }
+}
+
+.admin-bar .header-fixed+#content #si-sidebar{
+  top: 7rem;
+}
+
+@media (min-width: 768px){
+  .admin-bar .header-fixed+#content #si-sidebar{
+    top: 10rem;
+  }
+}
+
+.admin-bar .header-fixed #si-sidebar{
+  top: 7rem;
+}
+
+.header-fixed+#content #si-sidebar{
+  top: 77px ;
 }
 
 #sidebar-main-menu a{
@@ -2684,14 +2702,12 @@ html.translated-rtl[lang=ur] #announcement font {
 }
 
 @media screen and (max-width: 600px){
-  .admin-bar #si-header.header-fixed, .admin-bar #si-sidebar{
+  .admin-bar #si-header.header-fixed{
     top: 0 !important;
   }
 
-  #gt_float_wrapper{
-    left: 50%;
-    right: unset;
-    transform: translateX(-50%);
+  .gt_float_switcher .gt-selected .gt-current-lang{
+    padding: 0px !important;
   }
 }
 

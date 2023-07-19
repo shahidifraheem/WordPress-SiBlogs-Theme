@@ -2777,12 +2777,12 @@ function siblogs_customize_register($wp_customize)
         'settings' => 'author_avatar_outline_color',
     )));
     $wp_customize->add_setting('author_avatar_fill_style', array(
-        'default' => 'cover',
+        'default' => 'contain',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('author_avatar_fill_style', array(
         'label' => __('Avatar Fill Style', 'siblogs'),
-        'section' => 'si_forms',
+        'section' => 'site_author',
         'type' => 'select',
         'choices' => array(
             'none' => __('Default', 'siblogs'),
@@ -2796,7 +2796,7 @@ function siblogs_customize_register($wp_customize)
     ));
     $wp_customize->add_control('author_avatar_position', array(
         'label' => __('Avatar Position', 'siblogs'),
-        'section' => 'si_forms',
+        'section' => 'site_author',
         'type' => 'select',
         'choices' => array(
             'center' => __('Default', 'siblogs'),
@@ -2811,7 +2811,7 @@ function siblogs_customize_register($wp_customize)
     ));
     $wp_customize->add_control('author_links_style', array(
         'label' => __('Links Style', 'siblogs'),
-        'section' => 'si_forms',
+        'section' => 'site_author',
         'type' => 'select',
         'choices' => array(
             'none' => __('Default', 'siblogs'),

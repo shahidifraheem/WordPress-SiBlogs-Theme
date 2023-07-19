@@ -15,11 +15,22 @@ get_sidebar();
 
 $main_posts = get_field('archive_main_posts');
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-	'posts_per_page' => 10,
-	'paged' => $paged,
-	'post_status' => 'publish'
-);
+$obj = get_queried_object();
+if (is_category()) {
+	$args = array(
+		'posts_per_page' => 10,
+		'paged' => $paged,
+		'post_status' => 'publish',
+		'cat' => $obj->term_id
+	);
+} else {
+	$args = array(
+		'posts_per_page' => 10,
+		'paged' => $paged,
+		'post_status' => 'publish',
+		'tag_id' => $obj->term_id
+	);
+}
 $query = new WP_Query($args);
 
 $obj = get_queried_object();
