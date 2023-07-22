@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action('customize_register', 'siblogs_customize_register');
 function siblogs_customize_register($wp_customize)
 {
@@ -1572,14 +1576,14 @@ function siblogs_customize_register($wp_customize)
         'type' => 'text',
         'section' => 'site_sidebar',
     ));
-    $wp_customize->add_setting('sub_menu_links_offsetx', array(
+    $wp_customize->add_setting('sub_menu_offsetx', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 15,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('sub_menu_links_offsetx', array(
+    $wp_customize->add_control('sub_menu_offsetx', array(
         'label' => _('Sub Menu OffsetX'),
         'type' => 'text',
         'section' => 'site_sidebar',
@@ -2392,6 +2396,18 @@ function siblogs_customize_register($wp_customize)
     ));
     $wp_customize->add_control('internet_alert_font_family', array(
         'label' => _('Internet Alert Font Family'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('icons_path_url', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => "https://siblogs.info/si-content/si-layouts/assets/icons/",
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_attr',
+    ));
+    $wp_customize->add_control('icons_path_url', array(
+        'label' => _('Icons Path Url'),
         'type' => 'text',
         'section' => 'si_general',
     ));

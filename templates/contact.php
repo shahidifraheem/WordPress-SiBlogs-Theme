@@ -10,14 +10,18 @@
  * @since SI Blogs 1.0
  */
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 get_header();
 get_sidebar();
 
 // Social Icons
-$facebook_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/facebook-circle.svg");
-$instagram_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/instagram.svg");
-$linkedin_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/linkedin.svg");
-$twitter_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/twitter.svg");
+$facebook_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "facebook-circle.svg");
+$instagram_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "instagram.svg");
+$linkedin_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "linkedin.svg");
+$twitter_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "twitter.svg");
 
 $contact = get_field("contact_info");
 if (isset($contact) || !empty($contact)) :

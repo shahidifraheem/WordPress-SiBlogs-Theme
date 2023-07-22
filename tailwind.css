@@ -143,7 +143,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .has-sub-menu .has-dropdown > a,#sidebar-main-menu .menu-item-has-children > a{
     @apply justify-between
 }
-.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after{
+.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after, .si-navbar .has-sub-menu .sub-menu > li > a:after{
     content: "\276F";
     color: var(--primary-color);
     @apply inline-block rotate-90 text-xs ml-2 font-thin
@@ -179,7 +179,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply text-sm font-normal
 }
 .si-navbar .mega-menu{
-    @apply flex items-center overflow-hidden
+    @apply flex items-center justify-center overflow-hidden
 }
 .si-navbar .mega-menu > ul{
     @apply w-full
@@ -393,9 +393,12 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     z-index: 2;
     @apply relative
 }
-.post-content_footer{
+.post-content_footer,.post-tags{
     color: var(--secondary-color);
     @apply flex items-center flex-wrap gap-1
+}
+.post-tags{
+    @apply sm:justify-start justify-center
 }
 .single-post .post-content_footer{
     @apply justify-center xsm:justify-start

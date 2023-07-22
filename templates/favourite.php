@@ -10,6 +10,10 @@
  * @since SI Blogs 1.0
  */
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 get_header();
 get_sidebar();
 ?>

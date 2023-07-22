@@ -933,7 +933,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   justify-content: space-between;
 }
 
-.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after{
+.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after, .si-navbar .has-sub-menu .sub-menu > li > a:after{
   content: "\276F";
   color: var(--primary-color);
   margin-left: 0.5rem;
@@ -1006,6 +1006,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .si-navbar .mega-menu{
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -1463,12 +1464,22 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   position: relative
 }
 
-.post-content_footer{
+.post-content_footer,.post-tags{
   color: var(--secondary-color);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.25rem
+}
+
+.post-tags{
+  justify-content: center;
+}
+
+@media (min-width: 640px){
+  .post-tags{
+    justify-content: flex-start;
+  }
 }
 
 .single-post .post-content_footer{

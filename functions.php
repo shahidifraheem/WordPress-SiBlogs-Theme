@@ -9,11 +9,9 @@
  * @subpackage si_blogs
  * @since SI Blogs 1.0
  */
-
-// This theme requires WordPress 5.3 or later.
-// if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
-// 	require get_template_directory() . '/inc/back-compat.php';
-// }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 if (!function_exists('si_blogs_setup')) {
 	/**

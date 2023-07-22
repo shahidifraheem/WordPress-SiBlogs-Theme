@@ -9,6 +9,11 @@
  * @subpackage SI_Blogs
  * @since SI Blogs 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 get_header();
 get_sidebar();
 
@@ -16,7 +21,7 @@ get_sidebar();
 $user_info = get_userdata(get_post_field('post_author', get_the_ID()));
 
 // Icon
-$wishlist_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/wishlist.svg");
+$wishlist_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "wishlist.svg");
 ?>
 <section id="single-main-section">
     <div class="si-wrapper padding-y">

@@ -12,6 +12,10 @@
  * @since SI Blogs 1.0
  */
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $secondary_footer_description = get_theme_mod("secondary_footer_description", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem autem impedit veniam voluptatum porro iusto, dicta sit at quaerat maxime.");
 $secondary_footer_btn_text = get_theme_mod("secondary_footer_btn_text", "Become a subscriber");
 $secondary_footer_btn_arrow = get_theme_mod("secondary_footer_btn_arrow", "&#10142;");

@@ -8,6 +8,10 @@
  * @since SI Blogs 1.0
  */
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 $obj = get_queried_object();
 // Get the user ID
 $author_id = get_the_author_meta('ID');
@@ -37,24 +41,24 @@ $author_role = $obj->roles[0];
 $author_info = get_field('author_info', $obj);
 
 // Social Icons
-$facebook_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/facebook-circle.svg");
-$instagram_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/instagram.svg");
-$linkedin_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/linkedin.svg");
-$twitter_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/twitter.svg");
-$myspace_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/myspace.svg");
-$pinterest_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/pinterest.svg");
-$soundcloud_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/soundcloud.svg");
-$youtube_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/youtube.svg");
-$wikipedia_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/wikipedia.svg");
-$mastodon_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/mastodon.svg");
-$mail_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/mail.svg");
-$internet_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/internet.svg");
-$share_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/share.svg");
-$date_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/date.svg");
-$badge_admin = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-admin.svg");
-$badge_editor = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-editor.svg");
-$badge_author = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-author.svg");
-$badge_contributor = file_get_contents(get_template_directory_uri() . "/assets/icons/badge-contributor.svg");
+$facebook_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "facebook-circle.svg");
+$instagram_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "instagram.svg");
+$linkedin_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "linkedin.svg");
+$twitter_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "twitter.svg");
+$myspace_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "myspace.svg");
+$pinterest_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "pinterest.svg");
+$soundcloud_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "soundcloud.svg");
+$youtube_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "youtube.svg");
+$wikipedia_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "wikipedia.svg");
+$mastodon_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "mastodon.svg");
+$mail_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "mail.svg");
+$internet_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "internet.svg");
+$share_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "share.svg");
+$date_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "date.svg");
+$badge_admin = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "badge-admin.svg");
+$badge_editor = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "badge-editor.svg");
+$badge_author = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "badge-author.svg");
+$badge_contributor = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "badge-contributor.svg");
 
 
 if (isset($author_info)) :

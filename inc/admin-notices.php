@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action('admin_notices', 'show_admin_notices');
 function show_admin_notices()
 {

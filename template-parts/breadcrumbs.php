@@ -8,6 +8,10 @@
  * @since SI Blogs 1.0
  */
 
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 // Check if Yoast SEO is installed and activated.
 if (function_exists('yoast_breadcrumb')) :
     yoast_breadcrumb('<nav class="breadcrumbs"><div class="si-wrapper">', '</div></nav>');

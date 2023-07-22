@@ -11,7 +11,11 @@
  * @subpackage SI_Blogs
  * @since SI Blogs 1.0
  */
-$bars_icon = file_get_contents(get_template_directory_uri() . "/assets/icons/bars.svg");
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+$bars_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "bars.svg");
 // Colors
 $selection_color = get_theme_mod("selection_color", "#ffffff");
 $selection_bg_color = get_theme_mod("selection_bg_color", "#2D93AD");
@@ -141,7 +145,7 @@ $sidebar_icon_bg = get_theme_mod("sidebar_icon_bg", "#242424");
 $sidebar_icon_color = get_theme_mod("sidebar_icon_color", "#ffffff");
 $sidebar_menu_offset_top = get_theme_mod("sidebar_menu_offset_top", 30);
 $sidebar_menu_offset_bottom = get_theme_mod("sidebar_menu_offset_bottom", 50);
-$sub_menu_links_offsetx = get_theme_mod("sub_menu_links_offsetx", 15);
+$sub_menu_offsetx = get_theme_mod("sub_menu_offsetx", 15);
 $sub_menu_offset_left = get_theme_mod("sub_menu_offset_left", 10);
 $sidebar_newsletter_bg = get_theme_mod("sidebar_newsletter_bg", "#f7f7f7");
 $sidebar_newsletter_inner_offset = get_theme_mod("sidebar_newsletter_inner_offset", 20);
@@ -374,7 +378,8 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			color: <?= $links_hover_color ?>;
 		}
 
-		p {
+		p,
+		.customizer-content li {
 			font-size: <?= $g_mobile_paragraph ?>px;
 			color: <?= $g_paragraph_color ?>;
 		}
@@ -508,7 +513,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 		}
 
 		.si-navbar .has-sub-menu .sub-menu a {
-			padding: <?= $sub_menu_links_offsetx ?>px <?= $sub_menu_links_offsety ?>px;
+			padding: <?= $sub_menu_links_offsety ?>px <?= $sub_menu_links_offsetx ?>px;
 		}
 
 		.si-navbar .has-sub-menu .sub-menu li+li,
@@ -886,7 +891,6 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		/** General Pages */
 		.post-tags {
-			border-right: <?= $post_tags_divider_width ?>px solid <?= $post_tags_divider_color ?>;
 			padding-right: <?= $post_tags_offsetx ?>px;
 			margin-right: <?= $post_tags_offsetx ?>px;
 			line-height: <?= $post_tags_line_height ?>px;
@@ -1036,10 +1040,14 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			.title {
 				font-size: <?= $desktop_title_size ?>px;
 			}
+
+			.post-tags {
+				border-right: <?= $post_tags_divider_width ?>px solid <?= $post_tags_divider_color ?>;
+			}
 		}
 
 		@media screen and (min-width: 768px) {
-			p {
+			p, .customizer-content li {
 				font-size: <?= $g_desktop_paragraph ?>px;
 			}
 
@@ -1145,7 +1153,8 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 					}
 					?>
 				</div>
-				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : "";$navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
+				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : "";
+											$navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
 					<nav class="si-navbar">
 						<?php
 						$menu_name = 'si-main-menu';
@@ -1172,7 +1181,10 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 															endforeach;
 															if (!empty($sub_items)) : $i = 1;
 																foreach ($sub_items as $sub_item) : ?>
-																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0];if ($i++ == 1) {echo " active";} ?>" <?php endif; ?>>
+																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0];
+																														if ($i++ == 1) {
+																															echo " active";
+																														} ?>" <?php endif; ?>>
 																		<a href="<?= $sub_item->url ?>"><?= $sub_item->title ?></a>
 																		<?php
 																		// Reterieving sub inner items
@@ -1191,7 +1203,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 																						$post_obj = get_post($sub_inner_item->object_id);
 
 																						// Get the post thumbnail URL
-																						$thumbnail_url = get_the_post_thumbnail_url($post_obj, 'thumbnail');
+																						$thumbnail_url = get_the_post_thumbnail_url($post_obj, 'full');
 
 																						// Get post date
 																						$post_date = get_the_date('', $post_obj);
@@ -1237,7 +1249,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 																		$post_obj = get_post($sub_item->object_id);
 
 																		// Get the post thumbnail URL
-																		$thumbnail_url = get_the_post_thumbnail_url($post_obj, 'thumbnail');
+																		$thumbnail_url = get_the_post_thumbnail_url($post_obj, 'full');
 
 																		// Get post date
 																		$post_date = get_the_date('', $post_obj);
