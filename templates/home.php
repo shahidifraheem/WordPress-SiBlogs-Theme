@@ -55,7 +55,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
             <?php if (!empty($main_posts)) :
                 foreach ($main_posts as $main_post) : ?>
                     <div class="overlay-post overlay-post-<?= $main_post->ID ?>">
-                        <a href="<?= site_url() . "/" . $main_post->post_name ?>" class="link-overlay"></a>
+                        <a href="<?php the_permalink($main_post->ID); ?>" class="link-overlay"></a>
                         <?php
                         $featured_img_id_1 = get_post_thumbnail_id($main_post->ID);
                         $featured_img_alt_1 = get_post_meta($featured_img_id_1, '_wp_attachment_image_alt', true);
@@ -132,7 +132,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                         if (get_the_post_thumbnail_url($trend_post->ID) != "") :
                         ?>
                             <div class="featured-img">
-                                <a href="<?= site_url() . "/" . $trend_post->post_name ?>">
+                                <a href="<?php the_permalink($trend_post->ID); ?>">
                                     <img src="<?= get_the_post_thumbnail_url($trend_post->ID) ?>" alt="<?= $featured_img_alt_1 ?>">
                                 </a>
                             </div>
@@ -162,7 +162,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <a href="<?= site_url() . "/" . $trend_post->post_name ?>">
+                            <a href="<?php the_permalink($trend_post->ID); ?>">
                                 <h2 class="post-title"><?= $trend_post->post_title ?></h2>
                             </a>
                             <div class="post-content_footer">
@@ -258,13 +258,13 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                 if (get_the_post_thumbnail_url($sidebar_post->ID) != "") :
                                 ?>
                                     <div class="featured-img">
-                                        <a href="<?= site_url() . "/" . $sidebar_post->post_name ?>">
+                                        <a href="<?php the_permalink($sidebar_post->ID); ?>">
                                             <img src="<?= get_the_post_thumbnail_url($sidebar_post->ID) ?>" alt="<?= $featured_img_alt_1 ?>">
                                         </a>
                                     </div>
                                 <?php endif; ?>
                                 <div class="post-content">
-                                    <a href="<?= site_url() . "/" . $sidebar_post->post_name ?>">
+                                    <a href="<?php the_permalink($sidebar_post->ID); ?>">
                                         <h2 class="post-title"><?= $sidebar_post->post_title ?></h2>
                                     </a>
                                 </div>
@@ -297,7 +297,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                     foreach ($huge_posts as $huge_post) :
                         if ($i++ == 0 || $i++ == 8) : ?>
                             <div class="overlay-post overlay-post-<?= $huge_post->ID ?> huge-post">
-                                <a href="<?= site_url() . "/" . $huge_post->post_name ?>" class="link-overlay"></a>
+                                <a href="<?php the_permalink($huge_post->ID); ?>" class="link-overlay"></a>
                                 <?php
                                 $featured_img_id_1 = get_post_thumbnail_id($huge_post->ID);
                                 $featured_img_alt_1 = get_post_meta($featured_img_id_1, '_wp_attachment_image_alt', true);
@@ -353,7 +353,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                 if (get_the_post_thumbnail_url($huge_post->ID) != "") :
                                 ?>
                                     <div class="featured-img">
-                                        <a href="<?= site_url() . "/" . $huge_post->post_name ?>">
+                                        <a href="<?php the_permalink($huge_post->ID); ?>">
                                             <img src="<?= get_the_post_thumbnail_url($huge_post->ID) ?>" alt="<?= $featured_img_alt_1 ?>">
                                         </a>
                                     </div>
@@ -381,7 +381,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="<?= site_url() . "/" . $huge_post->post_name ?>">
+                                    <a href="<?php the_permalink($huge_post->ID); ?>">
                                         <h2 class="post-title"><?= $huge_post->post_title ?></h2>
                                     </a>
                                     <div class="post-content_footer">
@@ -432,13 +432,13 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
                         if (get_the_post_thumbnail_url($category_post->ID) != "") :
                         ?>
                             <div class="featured-img">
-                                <a href="<?= site_url() . "/" . $category_post->post_name ?>">
+                                <a href="<?php the_permalink($category_post->ID); ?>">
                                     <img src="<?= get_the_post_thumbnail_url($category_post->ID) ?>" alt="<?= $featured_img_alt_1 ?>">
                                 </a>
                             </div>
                         <?php endif; ?>
                         <div class="post-content">
-                            <a href="<?= site_url() . "/" . $category_post->post_name ?>">
+                            <a href="<?php the_permalink($category_post->ID); ?>">
                                 <h2 class="post-title"><?= $category_post->post_title ?></h2>
                             </a>
                             <div class="post-content_footer">
