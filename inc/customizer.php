@@ -2402,7 +2402,7 @@ function siblogs_customize_register($wp_customize)
     $wp_customize->add_setting('icons_path_url', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
-        'default' => "https://siblogs.info/si-content/si-layouts/assets/icons/",
+        'default' => "http://localhost/si-blogs/wp-content/themes/siblogs/assets/icons/",
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_attr',
     ));
@@ -2410,6 +2410,16 @@ function siblogs_customize_register($wp_customize)
         'label' => _('Icons Path Url'),
         'type' => 'text',
         'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('show_post_views', array(
+        'default'           => false,
+        'sanitize_callback' => 'sanitize_checkbox',
+    ));
+    $wp_customize->add_control('show_post_views',  array(
+        'label'    => __('Show Posts Views', 'siblogs'),
+        'section'  => 'si_general',
+        'settings' => 'show_post_views',
+        'type'     => 'checkbox',
     ));
 
     /**

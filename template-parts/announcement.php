@@ -7,13 +7,13 @@
  * @subpackage SI_Blogs
  * @since SI Blogs 1.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
-$facebook = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "facebook.svg");
-$instagram = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "instagram.svg");
-$linkedin = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "linkedin.svg");
+$facebook = file_get_contents(get_theme_mod("icons_path_url") . "facebook.svg");
+$instagram = file_get_contents(get_theme_mod("icons_path_url") . "instagram.svg");
+$linkedin = file_get_contents(get_theme_mod("icons_path_url") . "linkedin.svg");
 
 $facebook_url = get_theme_mod('facebook', "#");
 $instagram_url = get_theme_mod('instagram', "#");

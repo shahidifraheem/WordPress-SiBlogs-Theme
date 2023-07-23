@@ -795,7 +795,7 @@ img:hover{
   justify-content: space-between;
 }
 
-input:not(input[type="radio"], input[type="checkbox"]),textarea, select{
+input:not(input[type="radio"], input[type="checkbox"], input[type="submit"]),textarea, select{
   border: 1px solid var(--border-color);
   height: 2.5rem;
   width: 100%;
@@ -823,6 +823,8 @@ input[type="submit"],form button, .universal-btn{
   color: var(--white-color);
   border: 1px solid var(--primary-color) !important;
   width: auto !important;
+  outline: none !important;
+  transition: .2s;
   cursor: pointer;
 }
 
@@ -933,7 +935,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   justify-content: space-between;
 }
 
-.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after, .si-navbar .has-sub-menu .sub-menu > li > a:after{
+.si-navbar .has-grid-menu > a:after,.si-navbar .has-post-grid > a:after,.si-navbar .has-sub-menu > a:after,.si-navbar .has-sub-menu .has-dropdown > a:after, #sidebar-main-menu .menu-item-has-children > a:after{
   content: "\276F";
   color: var(--primary-color);
   margin-left: 0.5rem;
@@ -1006,8 +1008,11 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .si-navbar .mega-menu{
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
+}
+
+.si-navbar .has-post-grid .mega-menu{
+  justify-content: center;
 }
 
 .si-navbar .mega-menu > ul{

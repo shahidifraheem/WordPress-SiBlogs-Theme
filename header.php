@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$bars_icon = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "bars.svg");
+$bars_icon = file_get_contents(get_theme_mod("icons_path_url") . "bars.svg");
 // Colors
 $selection_color = get_theme_mod("selection_color", "#ffffff");
 $selection_bg_color = get_theme_mod("selection_bg_color", "#2D93AD");
@@ -597,7 +597,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			margin-bottom: <?= $form_fields_space ?>px !important;
 		}
 
-		input:not(input[type="radio"], input[type="checkbox"]),
+		input:not(input[type="radio"], input[type="checkbox"], input[type="submit"]),
 		select {
 			height: <?= $form_fields_height ?>px;
 			padding: <?= $form_fields_offsety ?>px <?= $form_fields_offsetx ?>px !important;

@@ -16,7 +16,7 @@
 	exit; // Exit if accessed directly.
 }
 
-$close = file_get_contents(get_theme_mod("icons_path_url", "http://localhost/si-blogs/wp-content/themes/si-blogs/assets/icons/") . "close.svg");
+$close = file_get_contents(get_theme_mod("icons_path_url") . "close.svg");
 $sidebar_newsletter_title = get_theme_mod("sidebar_newsletter_title", "Newsletter");
 $sidebar_newsletter_description = get_theme_mod("sidebar_newsletter_description", "Inbio is a personal siblogs template. You can customize all.'");
 
