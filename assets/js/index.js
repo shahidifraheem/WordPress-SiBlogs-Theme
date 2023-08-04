@@ -68,12 +68,14 @@ jQuery(function ($) {
             }, 0);
         }
         $(this).parents('.si-search').toggleClass('active')
+        $(this).prev().blur()
     })
     $('.si-search').click(function (e) {
         e.stopPropagation()
     })
     $(window).click(() => {
         $('.si-search').removeClass('active')
+        $(".si-search .search-field").blur()
     })
 
     /**

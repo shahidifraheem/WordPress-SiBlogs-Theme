@@ -10,11 +10,11 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
-
-$facebook = file_get_contents(get_theme_mod("icons_path_url") . "facebook.svg");
-$instagram = file_get_contents(get_theme_mod("icons_path_url") . "instagram.svg");
-$linkedin = file_get_contents(get_theme_mod("icons_path_url") . "linkedin.svg");
-
+if (defined('ICONS_PATH')) {
+    $facebook = file_get_contents(ICONS_PATH . "facebook.svg");
+    $instagram = file_get_contents(ICONS_PATH . "instagram.svg");
+    $linkedin = file_get_contents(ICONS_PATH . "linkedin.svg");
+}
 $facebook_url = get_theme_mod('facebook', "#");
 $instagram_url = get_theme_mod('instagram', "#");
 $linkedin_url = get_theme_mod('linkedin', "#");

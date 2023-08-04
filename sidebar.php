@@ -12,11 +12,12 @@
  * @since SI Blogs 1.0
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
-
-$close = file_get_contents(get_theme_mod("icons_path_url") . "close.svg");
+if (defined('ICONS_PATH')) {
+    $close = file_get_contents(ICONS_PATH . "close.svg");
+}
 $sidebar_newsletter_title = get_theme_mod("sidebar_newsletter_title", "Newsletter");
 $sidebar_newsletter_description = get_theme_mod("sidebar_newsletter_description", "Inbio is a personal siblogs template. You can customize all.'");
 

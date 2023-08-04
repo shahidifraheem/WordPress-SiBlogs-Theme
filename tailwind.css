@@ -48,6 +48,9 @@ Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, 
     margin: 0;
     padding: 0;
 }
+html, body{
+	scroll-behavior: smooth;
+}
 a{
     @apply inline-block transition-all
 }
@@ -218,7 +221,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .si-search input{
     width: 0px !important;
     height: 50px !important;
-    @apply border-none absolute right-0 top-0 bottom-0 mr-12 !important
+    @apply border-none absolute right-0 top-0 bottom-0 mr-12 px-0 !important
 }
 .si-search.active input{
     width: 250px !important;
@@ -909,10 +912,10 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 #internet-alert{ 
     z-index: 99999999;
-    color: var(--dark-color);
+    color: var(--white-color);
     background-color: rgba(255, 0, 0, 0.308);
     transition: .3s;
-    @apply hidden items-center gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl px-10 py-6 rounded-full backdrop-blur-sm text-base
+    @apply hidden items-center gap-1 md:gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl px-5 md:px-10 py-2.5 md:py-6 rounded-full backdrop-blur-sm text-xs md:text-base
 }
 #internet-alert.active{
     @apply scale-110
@@ -963,6 +966,15 @@ html.translated-rtl .wrapper-widget {
     @apply text-end
 }
 html.translated-rtl .post-content_footer,html.translated-rtl .post-content_header{
+    @apply justify-end
+}
+html.translated-rtl .single-post .single-post-title,html.translated-rtl .single-post .post-axcerpt{
+    @apply text-end
+}
+html.translated-rtl .single-post .post-content_footer{
+    @apply sm:justify-end
+}
+html.translated-rtl .breadcrumbs .si-wrapper{
     @apply justify-end
 }
 /* Language Switcher */

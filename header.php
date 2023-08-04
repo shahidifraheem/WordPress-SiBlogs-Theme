@@ -14,8 +14,9 @@
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-
-$bars_icon = file_get_contents(get_theme_mod("icons_path_url") . "bars.svg");
+if(defined('ICONS_PATH')){
+	$bars_icon = file_get_contents(ICONS_PATH . "bars.svg");
+}
 // Colors
 $selection_color = get_theme_mod("selection_color", "#ffffff");
 $selection_bg_color = get_theme_mod("selection_bg_color", "#2D93AD");
@@ -593,7 +594,8 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		/* Contact Form 7 */
 		form>p,
-		form>.mailpoet_paragraph:not(.mailpoet_paragraph.last) {
+		form>.mailpoet_paragraph:not(.mailpoet_paragraph.last),
+		div[data-class="wpcf7cf_group"] {
 			margin-bottom: <?= $form_fields_space ?>px !important;
 		}
 
@@ -894,7 +896,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			margin-right: <?= $post_tags_offsetx ?>px;
 			line-height: <?= $post_tags_line_height ?>px;
 		}
-		
+
 		.post-tags a {
 			font-size: 14px;
 			text-decoration: none;
