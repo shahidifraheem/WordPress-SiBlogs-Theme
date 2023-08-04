@@ -113,7 +113,7 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
         <?php if (isset($trending_section['title']) || isset($trending_section['description'])) : ?>
             <div class="universal-header">
                 <?php if ($trending_section['title'] != "") : ?>
-                    <h2 class="title"><?= $trending_section['title'] ?></h2>
+                    <h1 class="title"><?= $trending_section['title'] ?></h1>
                 <?php endif;
                 if ($trending_section['description'] != "") : ?>
                     <div class="desc">

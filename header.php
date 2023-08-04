@@ -11,7 +11,7 @@
  * @subpackage SI_Blogs
  * @since SI Blogs 1.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -884,8 +884,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			fill: <?= $author_icons_color ?>;
 		}
 
-		.author>a,
-		.post-tags a {
+		.author>a {
 			text-decoration: <?= $author_links_style ?>;
 		}
 
@@ -894,6 +893,15 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			padding-right: <?= $post_tags_offsetx ?>px;
 			margin-right: <?= $post_tags_offsetx ?>px;
 			line-height: <?= $post_tags_line_height ?>px;
+		}
+		
+		.post-tags a {
+			font-size: 14px;
+			text-decoration: none;
+			border-left: 3px solid var(--primary-color);
+			color: var(--primary-color);
+			background-color: var(--light-color);
+			padding: 3px 5px;
 		}
 
 		.archive .main-section {
@@ -1047,7 +1055,9 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 		}
 
 		@media screen and (min-width: 768px) {
-			p, .customizer-content li {
+
+			p,
+			.customizer-content li {
 				font-size: <?= $g_desktop_paragraph ?>px;
 			}
 

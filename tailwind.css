@@ -328,7 +328,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply w-full
 }
 .si-main-grid .overlay-post:not(.overlay-post:first-child) img{
-    height: 275px;
+    height: 300px;
 }
 .si-main-grid .overlay-post:first-child {
     grid-row-start: unset;
@@ -668,6 +668,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .customizer-content ul{
     @apply pl-4
 }
+.customizer-content a{
+    color: var(--primary-color);
+}
 .contact-section .universal-header{
     @apply text-center
 }
@@ -959,6 +962,9 @@ html.translated-rtl textarea {
 html.translated-rtl .wrapper-widget {
     @apply text-end
 }
+html.translated-rtl .post-content_footer,html.translated-rtl .post-content_header{
+    @apply justify-end
+}
 /* Language Switcher */
 #gt_float_wrapper {
     position: absolute !important;
@@ -1044,6 +1050,9 @@ html.translated-rtl[lang=ur] #announcement font {
     }
     .contact-content{
         margin-top: -300px;
+    }
+    .si-main-grid .overlay-post:not(.overlay-post:first-child) img{
+        height: 275px;
     }
 }
 @media screen and (min-width: 1440px){
