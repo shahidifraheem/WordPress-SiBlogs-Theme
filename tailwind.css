@@ -240,7 +240,8 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 #si-sidebar{
     top: 120px;
-    @apply fixed left-0 bottom-0 h-screen overflow-y-auto z-20 invisible opacity-0 -translate-x-full
+    height: calc(100vh - 120px);
+    @apply fixed left-0 bottom-0 overflow-y-auto z-20 invisible opacity-0 -translate-x-full
 }
 #si-sidebar.active{
     @apply visible opacity-100 translate-x-0
@@ -256,6 +257,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 .header-fixed+#content #si-sidebar{
     top: 77px ;
+    height: calc(100vh - 77px);
 }
 #sidebar-main-menu a{
     @apply block py-3
