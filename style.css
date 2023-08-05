@@ -2811,3 +2811,16 @@ html.translated-rtl[lang=ur] #announcement font {
     width: calc(100% / 5);
   }
 }
+
+@media screen and (max-width: 425px){
+  #announcement{
+    padding-top: 40px;
+  }
+
+  #gt_float_wrapper {
+    top: 10px;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
