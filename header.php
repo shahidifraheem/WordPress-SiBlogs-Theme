@@ -528,7 +528,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		#si-sidebar {
 			background-color: <?= $sidebar_bg_color ?>;
-			width: <?= $desktop_sidebar_width ?>px;
+			width: <?= $mobile_sidebar_width ?>px;
 			transition: .3s;
 		}
 
@@ -998,7 +998,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			}
 
 			#si-sidebar {
-				width: <?= $mobile_sidebar_width ?>px;
+				width: <?= $desktop_sidebar_width ?>px;
 			}
 
 			.breadcrumbs {
