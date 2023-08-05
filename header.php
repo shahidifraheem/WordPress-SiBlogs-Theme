@@ -14,7 +14,7 @@
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
-if(defined('ICONS_PATH')){
+if (defined('ICONS_PATH')) {
 	$bars_icon = file_get_contents(ICONS_PATH . "bars.svg");
 }
 // Colors
@@ -210,7 +210,8 @@ $widget_latest_post_offset_bottom = get_theme_mod("widget_latest_post_offset_bot
 $widget_post_view_lists_offsety = get_theme_mod("widget_post_view_lists_offsety", 20);
 
 // General Styles
-$post_tags_offsetx = get_theme_mod("post_tags_offsetx", 10);
+$post_tags_box_offsetx = get_theme_mod("post_tags_box_offsetx", 10);
+$post_tags_box_text_size = get_theme_mod("post_tags_box_text_size", 0);
 $post_tags_line_height = get_theme_mod("post_tags_line_height", 16);
 $post_tags_divider_width = get_theme_mod("post_tags_divider_width", 1);
 $post_tags_divider_color = get_theme_mod("post_tags_divider_color", "#2D93AD");
@@ -219,6 +220,14 @@ $desktop_single_post_title_size = get_theme_mod("desktop_single_post_title_size"
 $mobile_single_post_title_size = get_theme_mod("mobile_single_post_title_size", 22);
 $single_posts_title_color = get_theme_mod("single_posts_title_color", "#2D93AD");
 $post_meta_offsetx = get_theme_mod("post_meta_offsetx", 10);
+$post_tags_size = get_theme_mod("post_tags_size", 14);
+$post_tags_offsety = get_theme_mod("post_tags_offsety", 3);
+$post_tags_offsetx = get_theme_mod("post_tags_offsetx", 5);
+$post_tags_style = get_theme_mod("post_tags_style", "underline");
+$post_tags_border_width = get_theme_mod("post_tags_border_width", 3);
+$post_tags_border_color = get_theme_mod("post_tags_border_color", "#2D93AD");
+$post_tags_text_color = get_theme_mod("post_tags_text_color", "#2D93AD");
+$post_tags_bg_color = get_theme_mod("post_tags_bg_color", "#f7f7f7");
 $text_404_size = get_theme_mod("text_404_size", 100);
 $text_404_color = get_theme_mod("text_404_color", "#2D93AD");
 $post_password_label_size = get_theme_mod("post_password_label_size", 0);
@@ -892,18 +901,19 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		/** General Pages */
 		.post-tags {
-			padding-right: <?= $post_tags_offsetx ?>px;
-			margin-right: <?= $post_tags_offsetx ?>px;
+			font-size: <?= $post_tags_box_text_size ?>px;
+			padding-right: <?= $post_tags_box_offsetx ?>px;
+			margin-right: <?= $post_tags_box_offsetx ?>px;
 			line-height: <?= $post_tags_line_height ?>px;
 		}
 
 		.post-tags a {
-			font-size: 14px;
-			text-decoration: none;
-			border-left: 3px solid var(--primary-color);
-			color: var(--primary-color);
-			background-color: var(--light-color);
-			padding: 3px 5px;
+			font-size: <?= $post_tags_size ?>px;
+			padding: <?= $post_tags_offsety ?>px <?= $post_tags_offsetx ?>px;
+			text-decoration: <?= $post_tags_style ?>;
+			color: <?= $post_tags_text_color ?>;
+			background-color: <?= $post_tags_bg_color ?>;
+			border-left: <?= $post_tags_border_width ?>px solid <?= $post_tags_border_color ?>;
 		}
 
 		.archive .main-section {
@@ -1165,8 +1175,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 					}
 					?>
 				</div>
-				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : "";
-											$navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
+				<div id="si-header-navbar" <?= $navbar_alignment == "center" ? "class='navbar-center'" : ""; $navbar_alignment == "right" ? "class='navbar-right'" : "" ?>>
 					<nav class="si-navbar">
 						<?php
 						$menu_name = 'si-main-menu';
@@ -1193,10 +1202,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 															endforeach;
 															if (!empty($sub_items)) : $i = 1;
 																foreach ($sub_items as $sub_item) : ?>
-																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0];
-																														if ($i++ == 1) {
-																															echo " active";
-																														} ?>" <?php endif; ?>>
+																	<li <?php if ($sub_item->classes[0]) : ?> class="<?php echo $sub_item->classes[0]; if ($i++ == 1) {echo " active";} ?>" <?php endif; ?>>
 																		<a href="<?= $sub_item->url ?>"><?= $sub_item->title ?></a>
 																		<?php
 																		// Reterieving sub inner items

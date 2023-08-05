@@ -2252,15 +2252,27 @@ function siblogs_customize_register($wp_customize)
         'title' => 'General Settings',
         'panel' => 'siblogs_settings',
     ));
-    $wp_customize->add_setting('post_tags_offsetx', array(
+    $wp_customize->add_setting('post_tags_box_offsetx', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 10,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('post_tags_offsetx', array(
+    $wp_customize->add_control('post_tags_box_offsetx', array(
         'label' => _('Post Tags OffsetX'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('post_tags_box_text_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 0,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('post_tags_box_text_size', array(
+        'label' => _('Post Tags Box Text Size'),
         'type' => 'text',
         'section' => 'si_general',
     ));
@@ -2354,6 +2366,94 @@ function siblogs_customize_register($wp_customize)
         'type' => 'text',
         'section' => 'si_general',
     ));
+    $wp_customize->add_setting('post_tags_size', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 14,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('post_tags_size', array(
+        'label' => _('Post Tags Text Size'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('post_tags_offsety', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 3,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('post_tags_offsety', array(
+        'label' => _('Post Tags OffsetY'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('post_tags_offsetx', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 5,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('post_tags_offsetx', array(
+        'label' => _('Post Tags OffsetX'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('post_tags_style', array(
+        'default' => 'none',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('post_tags_style', array(
+        'label' => __('Post Tags Style', 'siblogs'),
+        'section' => 'si_general',
+        'type' => 'select',
+        'choices' => array(
+            'none' => __('Default', 'siblogs'),
+            'underline' => __('Underline', 'siblogs'),
+        ),
+    ));
+    $wp_customize->add_setting('post_tags_border_width', array(
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'default' => 3,
+        'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('post_tags_border_width', array(
+        'label' => _('Post Tags Border Left Width'),
+        'type' => 'text',
+        'section' => 'si_general',
+    ));
+    $wp_customize->add_setting('post_tags_border_color', array(
+        'default' => '#2D93AD',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'post_tags_border_color', array(
+        'label' => __('Post Tags Border Color', 'siblogs'),
+        'section' => 'si_general',
+        'settings' => 'post_tags_border_color',
+    )));
+    $wp_customize->add_setting('post_tags_text_color', array(
+        'default' => '#2D93AD',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'post_tags_text_color', array(
+        'label' => __('Post Tags Text Color', 'siblogs'),
+        'section' => 'si_general',
+        'settings' => 'post_tags_text_color',
+    )));
+    $wp_customize->add_setting('post_tags_bg_color', array(
+        'default' => '#f7f7f7',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'post_tags_bg_color', array(
+        'label' => __('Post Tags Background Color', 'siblogs'),
+        'section' => 'si_general',
+        'settings' => 'post_tags_bg_color',
+    )));
     $wp_customize->add_setting('text_404_size', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
