@@ -918,6 +918,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     color: var(--white-color);
     background-color: rgba(255, 0, 0, 0.308);
     transition: .3s;
+    width: calc(100% - 20px);
     @apply hidden items-center gap-1 md:gap-3 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl px-5 md:px-10 py-2.5 md:py-6 rounded-full backdrop-blur-sm text-xs md:text-base
 }
 #internet-alert.active{
@@ -1057,6 +1058,9 @@ html.translated-rtl[lang=ur] #announcement font {
     }
     .comment-form-email, .comment-form-author, .comment-form-url {
         width: calc(100% / 3 - 14px) !important;
+    }
+    #internet-alert{
+        width: auto;
     }
 }
 @media screen and (min-width: 768px){
