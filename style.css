@@ -349,8 +349,8 @@ legend {
   padding: 0;
 }
 
-ol,
-ul,
+ol:not(.customizer-content ol),
+ul:not(.customizer-content ul),
 menu {
   list-style: none;
   margin: 0;
@@ -1485,7 +1485,8 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 
 .post-tags{
-  justify-content: center;
+  font-size: 0px;
+  justify-content: center
 }
 
 @media (min-width: 640px){
