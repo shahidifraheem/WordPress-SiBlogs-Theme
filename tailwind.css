@@ -1080,7 +1080,7 @@ html.translated-rtl[lang=ur] #announcement font {
 
 @media screen and (max-width: 425px){
     #announcement{
-        padding-top: 40px;
+        padding-top: 40px !important;
     }
     #gt_float_wrapper {
         top: 10px;
