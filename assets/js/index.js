@@ -58,6 +58,7 @@ jQuery(function ($) {
      * Search form
      * 
      */
+    $('.si-search button').removeAttr('disabled');
     $('.si-search button').click(function (e) {
         e.preventDefault()
         $(this).prev().focus()
@@ -68,7 +69,9 @@ jQuery(function ($) {
             }, 0);
         }
         $(this).parents('.si-search').toggleClass('active')
-        $(this).prev().blur()
+        if ($(this).parents('.si-search').hasClass('active')) {
+            $(this).prev().blur()
+        }
     })
     $('.si-search').click(function (e) {
         e.stopPropagation()

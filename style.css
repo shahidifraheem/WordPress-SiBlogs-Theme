@@ -350,7 +350,7 @@ legend {
 }
 
 ol:not(.customizer-content ol),
-ul:not(.customizer-content ul),
+ul:not(.customizer-content ul)
 menu {
   list-style: none;
   margin: 0;
@@ -2070,6 +2070,10 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   color: var(--primary-color);
 }
 
+.customizer-content img{
+  margin-bottom: 1.25rem;
+}
+
 .contact-section .universal-header{
   text-align: center;
 }
@@ -2686,6 +2690,10 @@ html.translated-rtl .single-post .single-post-title,html.translated-rtl .single-
 
 html.translated-rtl .breadcrumbs .si-wrapper{
   justify-content: flex-end;
+}
+
+html.translated-rtl #content *{
+  line-height: 2;
 }
 
 /* Language Switcher */

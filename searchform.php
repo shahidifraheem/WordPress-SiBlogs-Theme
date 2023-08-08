@@ -30,5 +30,5 @@ if (defined('ICONS_PATH')) {
 <form role="search" <?php echo $siblogs_aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. 
 					?> method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
 	<input type="search" id="<?php echo esc_attr($siblogs_unique_id); ?>" class="search-field" value="<?php echo get_search_query(); ?>" name="s" placeholder="Search..." />
-	<button type="submit" class="search-submit"><?= $search_icon ?></button>
+	<button type="submit" class="search-submit" disabled><?= $search_icon ?></button>
 </form>

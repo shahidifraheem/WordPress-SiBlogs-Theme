@@ -677,6 +677,9 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 .customizer-content a{
     color: var(--primary-color);
 }
+.customizer-content img{
+    @apply mb-5
+}
 .contact-section .universal-header{
     @apply text-center
 }
@@ -980,6 +983,9 @@ html.translated-rtl .single-post .post-content_footer{
 }
 html.translated-rtl .breadcrumbs .si-wrapper{
     @apply justify-end
+}
+html.translated-rtl #content *{
+    line-height: 2;
 }
 /* Language Switcher */
 #gt_float_wrapper {

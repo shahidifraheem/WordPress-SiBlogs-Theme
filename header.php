@@ -604,7 +604,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 		/* Contact Form 7 */
 		form>p,
 		form>.mailpoet_paragraph:not(.mailpoet_paragraph.last),
-		div[data-class="wpcf7cf_group"] {
+		div[data-class="extcf7_group"] {
 			margin-bottom: <?= $form_fields_space ?>px !important;
 		}
 
