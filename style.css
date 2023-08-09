@@ -349,8 +349,8 @@ legend {
   padding: 0;
 }
 
-ol:not(.customizer-content ol),
-ul:not(.customizer-content ul),
+ol,
+ul,
 menu {
   list-style: none;
   margin: 0;
@@ -1119,7 +1119,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 
 #si-sidebar{
-  top: 120px;
+  top: 151px;
   height: calc(100vh - 120px);
   visibility: hidden;
   position: fixed;
@@ -1150,7 +1150,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 }
 
 .admin-bar .header-fixed+#content #si-sidebar{
-  top: 7rem;
+  top: 5rem;
 }
 
 @media (min-width: 768px){

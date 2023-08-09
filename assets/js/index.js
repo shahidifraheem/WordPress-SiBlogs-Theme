@@ -70,6 +70,8 @@ jQuery(function ($) {
         }
         $(this).parents('.si-search').toggleClass('active')
         if ($(this).parents('.si-search').hasClass('active')) {
+            $(this).prev().focus()
+        } else {
             $(this).prev().blur()
         }
     })
