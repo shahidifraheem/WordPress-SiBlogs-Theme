@@ -671,7 +671,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 #page-banner img{
     @apply rounded-none shadow-none
 }
-.customizer-content ul{
+.customizer-content ul, .customizer-content ol{
     @apply pl-4
 }
 .customizer-content a{

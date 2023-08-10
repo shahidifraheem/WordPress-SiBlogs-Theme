@@ -17,7 +17,8 @@ if (!defined('ABSPATH')) {
 get_header();
 get_sidebar();
 
-$main_posts = get_field('archive_main_posts');
+$obj = get_queried_object( );
+$main_posts = get_field('archive_main_posts', $obj);
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $obj = get_queried_object();
 if (is_category()) {
