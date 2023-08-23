@@ -22,6 +22,15 @@ $user_info = get_userdata(get_post_field('post_author', get_the_ID()));
 
 // Icon
 $wishlist_icon = file_get_contents(get_theme_mod("icons_path_url") . "wishlist.svg");
+
+// Get the current post ID
+$post_id = get_the_ID();
+$args = array(
+    'post__not_in' => array($post_id),
+    'posts_per_page' => 3,
+    'orderby' => 'rand'
+);
+$related_posts = new WP_Query($args);
 ?>
 <section id="single-main-section">
     <div class="si-wrapper padding-y">
@@ -104,6 +113,21 @@ $wishlist_icon = file_get_contents(get_theme_mod("icons_path_url") . "wishlist.s
                 </div>
             <?php endif; ?>
         </div>
+        <?php if ($related_posts->have_posts()) : ?>
+            <div id="related-posts padding-y">
+                <div class="universal-header">
+                    <h1 class="title">Related Posts</h1>
+                </div>
+                <div class="posts-grid">
+                    <?php
+                    while ($related_posts->have_posts()) : $related_posts->the_post();
+                        get_template_part('template-parts/content');
+                    endwhile;
+                    ?>
+                </div>
+            </div>
+        <?php endif;
+        wp_reset_postdata(); ?>
     </div>
 </section>
 
