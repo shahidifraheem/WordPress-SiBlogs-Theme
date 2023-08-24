@@ -25,10 +25,14 @@ $wishlist_icon = file_get_contents(get_theme_mod("icons_path_url") . "wishlist.s
 
 // Get the current post ID
 $post_id = get_the_ID();
+// Get the category ID of the current post
+$category_id = get_the_category($post_id)[0]->cat_ID;
+
 $args = array(
     'post__not_in' => array($post_id),
     'posts_per_page' => 3,
-    'orderby' => 'rand'
+    'orderby' => 'rand',
+    'cat' => $category_id
 );
 $related_posts = new WP_Query($args);
 ?>
