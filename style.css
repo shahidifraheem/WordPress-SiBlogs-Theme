@@ -349,8 +349,8 @@ legend {
   padding: 0;
 }
 
-ol,
-ul,
+ol:not(.customizer-content ol),
+ul:not(.customizer-content ul),
 menu {
   list-style: none;
   margin: 0;
@@ -1837,6 +1837,24 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
   width: 100%;
 }
 
+.main-post-sidebar .wp-block-latest-posts{
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
+@media (min-width: 640px){
+  .main-post-sidebar .wp-block-latest-posts{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px){
+  .main-post-sidebar .wp-block-latest-posts{
+    display: block;
+  }
+}
+
 .wp-block-latest-posts > li{
   position: relative;
   display: flex;
@@ -1916,6 +1934,17 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
 
 .widget_post_views_counter_list_widget .author, .widget_post_views_counter_list_widget .count{
   width: auto;
+}
+
+.widget_post_views_counter_list_widget ul{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.widget_post_views_counter_list_widget .post-title{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 #single-main-section .post-content_header{
@@ -2768,6 +2797,13 @@ html.translated-rtl[lang=ur] #announcement font {
   margin: 0 !important;
 }
 
+@media screen and (max-width: 1023px) and (min-width: 640px){
+  .wp-block-latest-posts > li:nth-child(2){
+    border-style: none;
+    padding-top: 0px;
+  }
+}
+
 @media screen and (max-width: 600px){
   .admin-bar #si-header.header-fixed{
     top: 0 !important;
@@ -2781,6 +2817,10 @@ html.translated-rtl[lang=ur] #announcement font {
 @media screen and (min-width: 425px){
   .si-search.active input{
     width: 300px !important;
+  }
+
+  .wp-block-latest-posts__post-title{
+    font-size: 18px;
   }
 }
 
@@ -2813,6 +2853,13 @@ html.translated-rtl[lang=ur] #announcement font {
 
   .si-main-grid .overlay-post:not(.overlay-post:first-child) img{
     height: 275px;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .wp-block-latest-posts__featured-image img {
+    height: 120px;
+    width: 100%;
   }
 }
 
