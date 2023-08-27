@@ -2045,27 +2045,27 @@ function siblogs_customize_register($wp_customize)
         'title' => 'Sidebar Widget',
         'panel' => 'siblogs_settings',
     ));
-    $wp_customize->add_setting('widget_font_family', array(
+    $wp_customize->add_setting('widgets_font_family', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => "'Jost', sans-serif",
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_attr',
     ));
-    $wp_customize->add_control('widget_font_family', array(
-        'label' => _('Widget Font Family'),
+    $wp_customize->add_control('widgets_font_family', array(
+        'label' => __('Widget Font Family', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_desktop_width', array(
+    $wp_customize->add_setting('widgets_desktop_width', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 30,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_desktop_width', array(
-        'label' => _('Widget Desktop Width'),
+    $wp_customize->add_control('widgets_desktop_width', array(
+        'label' => __('Widget Desktop Width', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
@@ -2077,169 +2077,169 @@ function siblogs_customize_register($wp_customize)
         'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control('widgets_offsety', array(
-        'label' => _('Widgets OffsetY'),
+        'label' => __('Widgets OffsetY', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_sidebar_title', array(
+    $wp_customize->add_setting('widgets_sidebar_title', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 30,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_sidebar_title', array(
-        'label' => _('Widget Sidebar Title Size'),
+    $wp_customize->add_control('widgets_sidebar_title', array(
+        'label' => __('Widget Sidebar Title Size', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_sidebar_title_color', array(
+    $wp_customize->add_setting('widgets_sidebar_title_color', array(
         'default' => '#2D93AD',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widget_sidebar_title_color', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widgets_sidebar_title_color', array(
         'label' => __('Widget Title/Heading Line Background Color', 'siblogs'),
         'section' => 'si_widgets',
-        'settings' => 'widget_sidebar_title_color',
+        'settings' => 'widgets_sidebar_title_color',
     )));
-    $wp_customize->add_setting('widget_sidebar_title_offset_bottom', array(
+    $wp_customize->add_setting('widgets_sidebar_title_offset_bottom', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 30,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_sidebar_title_offset_bottom', array(
-        'label' => _('Widget Sidebar Title Offset Bottom'),
+    $wp_customize->add_control('widgets_sidebar_title_offset_bottom', array(
+        'label' => __('Widget Sidebar Title Offset Bottom', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('desktop_widget_title_size', array(
+    $wp_customize->add_setting('desktop_widgets_title_size', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 25,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('desktop_widget_title_size', array(
-        'label' => _('Desktop Widget Title/Heading Size'),
+    $wp_customize->add_control('desktop_widgets_title_size', array(
+        'label' => __('Desktop Widget Title/Heading Size', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('mobile_widget_title_size', array(
+    $wp_customize->add_setting('mobile_widgets_title_size', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 22,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('mobile_widget_title_size', array(
-        'label' => _('Mobile Widget Title/Heading Size'),
+    $wp_customize->add_control('mobile_widgets_title_size', array(
+        'label' => __('Mobile Widget Title/Heading Size', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_font_weight', array(
+    $wp_customize->add_setting('widgets_title_font_weight', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 600,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_title_font_weight', array(
-        'label' => _('Widget Title/Heading Thickness'),
+    $wp_customize->add_control('widgets_title_font_weight', array(
+        'label' => __('Widget Title/Heading Thickness', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_gap', array(
+    $wp_customize->add_setting('widgets_title_gap', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 15,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_title_gap', array(
-        'label' => _('Widget Title/Heading Gap'),
+    $wp_customize->add_control('widgets_title_gap', array(
+        'label' => __('Widget Title/Heading Gap', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_wrap', array(
+    $wp_customize->add_setting('widgets_title_wrap', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => "pre",
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_attr',
     ));
-    $wp_customize->add_control('widget_title_wrap', array(
-        'label' => _('Widget Title/Heading Wrap Style'),
+    $wp_customize->add_control('widgets_title_wrap', array(
+        'label' => __('Widget Title/Heading Wrap Style', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_offset_bottom', array(
+    $wp_customize->add_setting('widgets_title_offset_bottom', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 20,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_title_offset_bottom', array(
-        'label' => _('Widget Title/Heading Offset Bottom'),
+    $wp_customize->add_control('widgets_title_offset_bottom', array(
+        'label' => __('Widget Title/Heading Offset Bottom', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_line_height', array(
+    $wp_customize->add_setting('widgets_title_line_height', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 2,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_title_line_height', array(
-        'label' => _('Widget Title/Heading Line Height'),
+    $wp_customize->add_control('widgets_title_line_height', array(
+        'label' => __('Widget Title/Heading Line Height', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_line_roundness', array(
+    $wp_customize->add_setting('widgets_title_line_roundness', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 0,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_title_line_roundness', array(
-        'label' => _('Widget Title/Heading Line Roundness'),
+    $wp_customize->add_control('widgets_title_line_roundness', array(
+        'label' => __('Widget Title/Heading Line Roundness', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_title_line_bg', array(
+    $wp_customize->add_setting('widgets_title_line_bg', array(
         'default' => '#8a8a8a',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widget_title_line_bg', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widgets_title_line_bg', array(
         'label' => __('Widget Title/Heading Line Background Color', 'siblogs'),
         'section' => 'si_widgets',
-        'settings' => 'widget_title_line_bg',
+        'settings' => 'widgets_title_line_bg',
     )));
-    $wp_customize->add_setting('widget_latest_post_offset_bottom', array(
+    $wp_customize->add_setting('widgets_latest_post_offset_bottom', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 25,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_latest_post_offset_bottom', array(
-        'label' => _('Widget Latest Posts Inner Offset Bottom'),
+    $wp_customize->add_control('widgets_latest_post_offset_bottom', array(
+        'label' => __('Widget Latest Posts Inner Offset Bottom', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));
-    $wp_customize->add_setting('widget_post_view_lists_offsety', array(
+    $wp_customize->add_setting('widgets_post_view_lists_offsety', array(
         'type' => 'theme_mod',
         'capability' => 'edit_theme_options',
         'default' => 20,
         'transport' => 'refresh',
         'sanitize_callback' => 'absint',
     ));
-    $wp_customize->add_control('widget_post_view_lists_offsety', array(
-        'label' => _('Widget Post Views Lists Inner OffsetY'),
+    $wp_customize->add_control('widgets_post_view_lists_offsety', array(
+        'label' => __('Widget Post Views Lists Inner OffsetY', 'siblogs'),
         'type' => 'text',
         'section' => 'si_widgets',
     ));

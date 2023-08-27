@@ -191,23 +191,23 @@ $editor_lists_marker_size = get_theme_mod("editor_lists_marker_size", 20);
 $editor_sparator_offsety = get_theme_mod("editor_sparator_offsety", 20);
 
 // Widgets
-$widget_font_family = get_theme_mod("widget_font_family", "'Jost', sans-serif");
-$widget_desktop_width = get_theme_mod("widget_desktop_width", 30);
+$widgets_font_family = get_theme_mod("widgets_font_family", "'Jost', sans-serif");
+$widgets_desktop_width = get_theme_mod("widgets_desktop_width", 30);
 $widgets_offsety = get_theme_mod("widgets_offsety", 20);
-$widget_sidebar_title = get_theme_mod("widget_sidebar_title", 30);
-$widget_sidebar_title_color = get_theme_mod("widget_sidebar_title_color", "#2D93AD");
-$widget_sidebar_title_offset_bottom = get_theme_mod("widget_sidebar_title_offset_bottom", 30);
-$desktop_widget_title_size = get_theme_mod("desktop_widget_title_size", 25);
-$mobile_widget_title_size = get_theme_mod("mobile_widget_title_size", 22);
-$widget_title_font_weight = get_theme_mod("widget_title_font_weight", 600);
-$widget_title_gap = get_theme_mod("widget_title_gap", 15);
-$widget_title_wrap = get_theme_mod("widget_title_wrap", "pre");
-$widget_title_offset_bottom = get_theme_mod("widget_title_offset_bottom", 20);
-$widget_title_line_height = get_theme_mod("widget_title_line_height", 2);
-$widget_title_line_roundness = get_theme_mod("widget_title_line_roundness", 0);
-$widget_title_line_bg = get_theme_mod("widget_title_line_bg", "#8a8a8a");
-$widget_latest_post_offset_bottom = get_theme_mod("widget_latest_post_offset_bottom", 25);
-$widget_post_view_lists_offsety = get_theme_mod("widget_post_view_lists_offsety", 20);
+$widgets_sidebar_title = get_theme_mod("widgets_sidebar_title", 30);
+$widgets_sidebar_title_color = get_theme_mod("widgets_sidebar_title_color", "#2D93AD");
+$widgets_sidebar_title_offset_bottom = get_theme_mod("widgets_sidebar_title_offset_bottom", 30);
+$desktop_widgets_title_size = get_theme_mod("desktop_widgets_title_size", 25);
+$mobile_widgets_title_size = get_theme_mod("mobile_widgets_title_size", 22);
+$widgets_title_font_weight = get_theme_mod("widgets_title_font_weight", 600);
+$widgets_title_gap = get_theme_mod("widgets_title_gap", 15);
+$widgets_title_wrap = get_theme_mod("widgets_title_wrap", "pre");
+$widgets_title_offset_bottom = get_theme_mod("widgets_title_offset_bottom", 20);
+$widgets_title_line_height = get_theme_mod("widgets_title_line_height", 2);
+$widgets_title_line_roundness = get_theme_mod("widgets_title_line_roundness", 0);
+$widgets_title_line_bg = get_theme_mod("widgets_title_line_bg", "#8a8a8a");
+$widgets_latest_post_offset_bottom = get_theme_mod("widgets_latest_post_offset_bottom", 25);
+$widgets_post_view_lists_offsety = get_theme_mod("widgets_post_view_lists_offsety", 20);
 
 // General Styles
 $post_tags_box_offsetx = get_theme_mod("post_tags_box_offsetx", 10);
@@ -797,29 +797,29 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		/** Widgets Style */
 		.main-post-sidebar {
-			font-family: <?= $widget_font_family ?>;
+			font-family: <?= $widgets_font_family ?>;
 		}
 
 		.sidebar-title {
-			font-size: <?= $widget_sidebar_title ?>px;
-			margin-bottom: <?= $widget_sidebar_title_offset_bottom ?>px;
+			font-size: <?= $widgets_sidebar_title ?>px;
+			margin-bottom: <?= $widgets_sidebar_title_offset_bottom ?>px;
 		}
 
 		.main-post-sidebar .widget-title,
 		.main-post-sidebar .wp-block-heading {
-			color: <?= $widget_sidebar_title_color ?>;
-			margin-bottom: <?= $mobile_widget_title_size ?>px;
-			font-size: <?= $mobile_widget_title_size ?>px;
-			font-weight: <?= $widget_title_font_weight ?>;
-			gap: <?= $widget_title_gap ?>px;
-			white-space: <?= $widget_title_wrap ?>;
+			color: <?= $widgets_sidebar_title_color ?>;
+			margin-bottom: <?= $widgets_title_offset_bottom ?>px;
+			font-size: <?= $mobile_widgets_title_size ?>px;
+			font-weight: <?= $widgets_title_font_weight ?>;
+			gap: <?= $widgets_title_gap ?>px;
+			white-space: <?= $widgets_title_wrap ?>;
 		}
 
 		.main-post-sidebar .widget-title:after,
 		.main-post-sidebar .wp-block-heading:after {
-			height: <?= $widget_title_line_height ?>px;
-			border-radius: <?= $widget_title_line_roundness ?>px;
-			background-color: <?= $widget_title_line_bg ?>;
+			height: <?= $widgets_title_line_height ?>px;
+			border-radius: <?= $widgets_title_line_roundness ?>px;
+			background-color: <?= $widgets_title_line_bg ?>;
 		}
 
 		.main-post-sidebar .widget+.widget {
@@ -828,11 +828,11 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 
 		.main-post-sidebar .wp-block-latest-posts,
 		.main-post-sidebar .widget_post_views_counter_list_widget {
-			padding-bottom: <?= $widget_latest_post_offset_bottom ?>px;
+			padding-bottom: <?= $widgets_latest_post_offset_bottom ?>px;
 		}
 
 		.widget_post_views_counter_list_widget li+li {
-			margin-top: <?= $widget_post_view_lists_offsety ?>px;
+			margin-top: <?= $widgets_post_view_lists_offsety ?>px;
 		}
 
 		/* Author Page */
@@ -1094,7 +1094,7 @@ $copyright_text_color = get_theme_mod("copyright_text_color", "#ffffff");
 			.widget-title,
 			.main-post-sidebar .widget-title,
 			.main-post-sidebar .wp-block-heading {
-				font-size: <?= $desktop_widget_title_size ?>px;
+				font-size: <?= $desktop_widgets_title_size ?>px;
 			}
 
 			.newsletter .universal-btn {
