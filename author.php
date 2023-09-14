@@ -19,7 +19,8 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'posts_per_page' => 9,
     'paged' => $paged,
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+	'author' => $author_id
 );
 $query = new WP_Query($args);
 
