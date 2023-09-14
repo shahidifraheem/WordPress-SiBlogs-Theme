@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 $obj = get_queried_object();
 // Get the user ID
 $author_id = get_the_author_meta('ID');
+$author_url = get_author_posts_url(get_the_author_meta( 'ID' ));
 
 // Default Info
 $author_bio = get_the_author_meta('description');
@@ -74,7 +75,7 @@ if (isset($author_info)) :
     <div id="author-banner">
         <div class="author-banner-bg"></div>
         <div class="si-wrapper author-wrapper">
-            <button class="share" title="Share link to anywhere" data-url="<?php the_permalink(); ?>" data-title="<?php the_author(); ?>" <?= isset($author_bio) ? "data-description='" . $author_bio . "'" : "" ?>>
+            <button class="share" title="Share link to anywhere" data-url="<?= $author_url ?>" data-title="<?php the_author(); ?>" <?= isset($author_bio) ? "data-description='" . $author_bio . "'" : "" ?>>
                 <?= $share_icon ?>
             </button>
             <div class="author-content">
