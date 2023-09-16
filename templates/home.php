@@ -279,14 +279,14 @@ $posts_ad_list = new WP_Query($posts_ad_list_args);
 
 <section class="huge-posts-section padding-y">
     <div class="si-wrapper">
-        <?php if (isset($trending_section['title']) || isset($trending_section['description'])) : ?>
+        <?php if (isset($huge_section['title']) || isset($huge_section['description'])) : ?>
             <div class="universal-header">
-                <?php if ($trending_section['title'] != "") : ?>
-                    <h2 class="title"><?= $trending_section['title'] ?></h2>
+                <?php if ($huge_section['title'] != "") : ?>
+                    <h2 class="title"><?= $huge_section['title'] ?></h2>
                 <?php endif;
-                if ($trending_section['description'] != "") : ?>
+                if ($huge_section['description'] != "") : ?>
                     <div class="desc">
-                        <?= $trending_section['description'] ?>
+                        <?= $huge_section['description'] ?>
                     </div>
                 <?php endif; ?>
             </div>
