@@ -58,7 +58,7 @@ jQuery(function ($) {
      * Search form
      * 
      */
-    $('.si-search button').removeAttr('disabled');
+    $('.search-form button').removeAttr('disabled');
     $('.si-search button').click(function (e) {
         e.preventDefault()
         $(this).prev().focus()
