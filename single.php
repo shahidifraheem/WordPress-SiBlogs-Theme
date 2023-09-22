@@ -28,8 +28,8 @@ $next_post_id = get_next_post()->ID;
 $previous_post_id = get_previous_post()->ID;
 
 // Get the featured image URLs for the next and previous posts.
-$next_post_featured_image_url = get_the_post_thumbnail_url($next_post_id, 'large');
-$previous_post_featured_image_url = get_the_post_thumbnail_url($previous_post_id, 'large');
+$next_post_featured_image_url = get_the_post_thumbnail_url($next_post_id, 'medium');
+$previous_post_featured_image_url = get_the_post_thumbnail_url($previous_post_id, 'medium');
 
 // Get the titles for the next and previous posts.
 $next_post_title = get_the_title($next_post_id);
