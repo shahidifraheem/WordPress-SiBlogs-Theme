@@ -790,7 +790,8 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply gap-4 justify-center text-center md:text-start md:justify-between
 }
 .next-previous-posts{
-    @apply flex flex-wrap gap-2 justify-between items-center w-full
+    border-top: 1px solid var(--border-color);
+    @apply flex flex-wrap gap-2 justify-between items-center w-full pt-6 mt-4
 }
 .next-previous-posts > *{
     max-width: 300px;
