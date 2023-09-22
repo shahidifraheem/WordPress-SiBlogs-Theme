@@ -797,7 +797,7 @@ input[type="submit"]:hover, form button:hover, .universal-btn:hover{
     @apply flex items-center gap-2
 }
 .next-previous-posts img{
-    @apply w-20 h-20 object-cover
+    @apply w-32 h-20 object-cover
 }
 .next-previous-posts .post-title{
     @apply text-lg mt-0 !important;
