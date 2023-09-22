@@ -116,21 +116,21 @@ $related_posts = new WP_Query($args);
                 </div>
 		<?php if (isset($next_post_id) || isset($previous_post_id)) : ?>
 			<div class="next-previous-posts">
-				<?php if (isset($next_post_id)) : ?>
-					<a href="<?= $next_post_permalink ?>" class="next-post">
-						<img src="<?= $next_post_featured_image_url ?>" alt="<?= $next_post_title ?>" class="featured-image">
-						<div class="next-previous-inner">
-							<span>Next Post</span>
-							<h3 class="post-title"><?= $next_post_title ?></h3>
-						</div>
-					</a>
-				<?php endif;
-				if (isset($previous_post_id)) : ?>
+				<?php if (isset($previous_post_id)) : ?>
 					<a href="<?= $previous_post_permalink ?>" class="previous-post">
 						<img src="<?= $previous_post_featured_image_url ?>" alt="<?= $previous_post_title ?>" class="featured-image">
 						<div class="next-previous-inner">
 							<span>Previous Post</span>
 							<h3 class="post-title"><?= $previous_post_title ?></h3>
+						</div>
+					</a>
+				<?php endif;
+				if (isset($next_post_id)) : ?>
+					<a href="<?= $next_post_permalink ?>" class="next-post">
+						<img src="<?= $next_post_featured_image_url ?>" alt="<?= $next_post_title ?>" class="featured-image">
+						<div class="next-previous-inner">
+							<span>Next Post</span>
+							<h3 class="post-title"><?= $next_post_title ?></h3>
 						</div>
 					</a>
 				<?php endif; ?>
