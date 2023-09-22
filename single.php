@@ -114,28 +114,28 @@ $related_posts = new WP_Query($args);
                 <div class="customizer-content">
                     <?php the_content(); ?>
                 </div>
-                <div class="next-previous-posts">
-					<div class="previous-post">
-						<?php
-						if ($next_post_id) {
-							echo '<a href="' . $next_post_permalink . '" class="next-post">';
-							echo '<img src="' . $next_post_featured_image_url . '" alt="' . $next_post_title . '" class="featured-image">';
-							echo '<h3 class="post-title">' . $next_post_title . '</h3>';
-							echo '</a>';
-						}
-						?>
-					</div>
-					<div class="next-posts">
-						<?php
-						if ($previous_post_id) {
-							echo '<a href="' . $previous_post_permalink . '" class="previous-post">';
-							echo '<img src="' . $previous_post_featured_image_url . '" alt="' . $previous_post_title . '" class="featured-image">';
-							echo '<h3 class="post-title">' . $previous_post_title . '</h3>';
-							echo '</a>';
-						}
-						?>
-					</div>
-				</div>
+		<?php if ($next_post_id || $previous_post_id) : ?>
+			<div class="next-previous-posts">
+				<?php if ($next_post_id) : ?>
+					<a href="<?= $next_post_permalink ?>" class="next-post">
+						<img src="<?= $next_post_featured_image_url ?>" alt="<?= $next_post_title ?>" class="featured-image">
+						<div class="next-previous-inner">
+							<span>Next Post</span>
+							<h3 class="post-title"><?= $next_post_title ?></h3>
+						</div>
+					</a>
+				<?php endif;
+				if ($previous_post_id) : ?>
+					<a href="<?= $previous_post_permalink ?>" class="previous-post">
+						<img src="<?= $previous_post_featured_image_url ?>" alt="<?= $previous_post_title ?>" class="featured-image">
+						<div class="next-previous-inner">
+							<span>Previous Post</span>
+							<h3 class="post-title"><?= $previous_post_title ?></h3>
+						</div>
+					</a>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
                 <div class="single-comment-form padding-y">
                     <?php
                     if (comments_open() || get_comments_number()) {
