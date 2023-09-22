@@ -23,6 +23,22 @@ $user_info = get_userdata(get_post_field('post_author', get_the_ID()));
 // Icon
 $wishlist_icon = file_get_contents(get_theme_mod("icons_path_url") . "wishlist.svg");
 
+// Get the next and previous post IDs.
+$next_post_id = get_next_post()->ID;
+$previous_post_id = get_previous_post()->ID;
+
+// Get the featured image URLs for the next and previous posts.
+$next_post_featured_image_url = get_the_post_thumbnail_url($next_post_id, 'large');
+$previous_post_featured_image_url = get_the_post_thumbnail_url($previous_post_id, 'large');
+
+// Get the titles for the next and previous posts.
+$next_post_title = get_the_title($next_post_id);
+$previous_post_title = get_the_title($previous_post_id);
+
+// Get the permalinks for the next and previous posts.
+$next_post_permalink = get_permalink($next_post_id);
+$previous_post_permalink = get_permalink($previous_post_id);
+
 // Get the current post ID
 $post_id = get_the_ID();
 // Get the category ID of the current post
@@ -98,6 +114,28 @@ $related_posts = new WP_Query($args);
                 <div class="customizer-content">
                     <?php the_content(); ?>
                 </div>
+                <div class="next-previous-posts">
+					<div class="previous-post">
+						<?php
+						if ($next_post_id) {
+							echo '<a href="' . $next_post_permalink . '" class="next-post">';
+							echo '<img src="' . $next_post_featured_image_url . '" alt="' . $next_post_title . '" class="featured-image">';
+							echo '<h3 class="post-title">' . $next_post_title . '</h3>';
+							echo '</a>';
+						}
+						?>
+					</div>
+					<div class="next-posts">
+						<?php
+						if ($previous_post_id) {
+							echo '<a href="' . $previous_post_permalink . '" class="previous-post">';
+							echo '<img src="' . $previous_post_featured_image_url . '" alt="' . $previous_post_title . '" class="featured-image">';
+							echo '<h3 class="post-title">' . $previous_post_title . '</h3>';
+							echo '</a>';
+						}
+						?>
+					</div>
+				</div>
                 <div class="single-comment-form padding-y">
                     <?php
                     if (comments_open() || get_comments_number()) {
