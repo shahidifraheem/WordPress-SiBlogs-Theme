@@ -23,21 +23,21 @@ $user_info = get_userdata(get_post_field('post_author', get_the_ID()));
 // Icon
 $wishlist_icon = file_get_contents(get_theme_mod("icons_path_url") . "wishlist.svg");
 
-// Get the next and previous post IDs.
-$next_post_id = get_next_post()->ID;
-$previous_post_id = get_previous_post()->ID;
+// Get the next post
+if (isset(get_next_post()->ID)) {
+	$next_post_id = get_next_post()->ID;
+	$next_post_featured_image_url = get_the_post_thumbnail_url($next_post_id, 'medium');
+	$next_post_title = get_the_title($next_post_id);
+	$next_post_permalink = get_permalink($next_post_id);
+}
 
-// Get the featured image URLs for the next and previous posts.
-$next_post_featured_image_url = get_the_post_thumbnail_url($next_post_id, 'medium');
-$previous_post_featured_image_url = get_the_post_thumbnail_url($previous_post_id, 'medium');
-
-// Get the titles for the next and previous posts.
-$next_post_title = get_the_title($next_post_id);
-$previous_post_title = get_the_title($previous_post_id);
-
-// Get the permalinks for the next and previous posts.
-$next_post_permalink = get_permalink($next_post_id);
-$previous_post_permalink = get_permalink($previous_post_id);
+// Get the previous post
+if (isset(get_previous_post()->ID)) {
+	$previous_post_id = get_previous_post()->ID;
+	$previous_post_featured_image_url = get_the_post_thumbnail_url($previous_post_id, 'medium');
+	$previous_post_title = get_the_title($previous_post_id);
+	$previous_post_permalink = get_permalink($previous_post_id);
+}
 
 // Get the current post ID
 $post_id = get_the_ID();
@@ -114,9 +114,9 @@ $related_posts = new WP_Query($args);
                 <div class="customizer-content">
                     <?php the_content(); ?>
                 </div>
-		<?php if ($next_post_id || $previous_post_id) : ?>
+		<?php if (isset($next_post_id) || isset($previous_post_id)) : ?>
 			<div class="next-previous-posts">
-				<?php if ($next_post_id) : ?>
+				<?php if (isset($next_post_id)) : ?>
 					<a href="<?= $next_post_permalink ?>" class="next-post">
 						<img src="<?= $next_post_featured_image_url ?>" alt="<?= $next_post_title ?>" class="featured-image">
 						<div class="next-previous-inner">
@@ -125,7 +125,7 @@ $related_posts = new WP_Query($args);
 						</div>
 					</a>
 				<?php endif;
-				if ($previous_post_id) : ?>
+				if (isset($previous_post_id)) : ?>
 					<a href="<?= $previous_post_permalink ?>" class="previous-post">
 						<img src="<?= $previous_post_featured_image_url ?>" alt="<?= $previous_post_title ?>" class="featured-image">
 						<div class="next-previous-inner">
