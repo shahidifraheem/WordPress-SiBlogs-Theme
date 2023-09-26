@@ -195,7 +195,7 @@ add_action('lostpassword_post', 'si_lost_password_action', 10, 2);
 function custom_login_logo()
 {
     $logo_id = get_theme_mod('custom_logo');
-    $logo_url = wp_get_attachment_image_src($logo_id)[0];
+    $logo_url = wp_get_attachment_image_src($logo_id, 'full')[0];
 
     echo '<style type="text/css">
         h1 a { background-image: url(' . $logo_url . ') !important; }
