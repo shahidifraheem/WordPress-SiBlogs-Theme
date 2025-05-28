@@ -1,6 +1,3 @@
-# Professional Theme
-> https://siblogs.info
-
 # Developed this theme by using the following:
 - [x] WordPress Theme
 - [x] HTML
